@@ -1,0 +1,15 @@
+[
+  {
+    "name": "default",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "Jcrocks8181",
+    "database": "hashtrader_exchange",
+    "synchronize": false,
+    "entities": [
+      "entities/*.js"
+    ]
+  }
+]
