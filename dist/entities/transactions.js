@@ -11,8 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const users_1 = require("./users");
-const deposits_1 = require("./deposits");
-const withdrawal_1 = require("./withdrawal");
 let transactions = class transactions {
 };
 __decorate([
@@ -76,14 +74,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], transactions.prototype, "type", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => deposits_1.deposits, deposits => deposits.transaction, { onDelete: 'RESTRICT' }),
-    __metadata("design:type", Array)
-], transactions.prototype, "depositss", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => withdrawal_1.withdrawal, withdrawal => withdrawal.transaction, { onDelete: 'RESTRICT' }),
-    __metadata("design:type", Array)
-], transactions.prototype, "withdrawals", void 0);
 transactions = __decorate([
     typeorm_1.Entity("transactions", { schema: "hashtrader_exchange" }),
     typeorm_1.Index("userId", ["user",])

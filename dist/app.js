@@ -14,6 +14,9 @@ require("reflect-metadata");
 const typeorm_1 = require("typeorm");
 const appConfig = require("./common/app-config");
 const routing_controllers_1 = require("routing-controllers");
+/**
+ * Controllers (route handlers).
+ */
 const UserController_1 = require("./controllers/UserController");
 const AuthenticationController_1 = require("./controllers/AuthenticationController");
 /**

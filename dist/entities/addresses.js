@@ -24,12 +24,12 @@ __decorate([
     __metadata("design:type", Number)
 ], addresses.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column("binary", {
+    typeorm_1.Column("varchar", {
         nullable: false,
-        length: 64,
+        length: 256,
         name: "addressHash"
     }),
-    __metadata("design:type", Buffer)
+    __metadata("design:type", String)
 ], addresses.prototype, "addressHash", void 0);
 __decorate([
     typeorm_1.Column("varchar", {
@@ -39,6 +39,15 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], addresses.prototype, "salt", void 0);
+__decorate([
+    typeorm_1.Column("double", {
+        nullable: false,
+        default: "0",
+        precision: 22,
+        name: "balance"
+    }),
+    __metadata("design:type", Number)
+], addresses.prototype, "balance", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.addressess, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
     typeorm_1.JoinColumn({ name: 'coinId' }),

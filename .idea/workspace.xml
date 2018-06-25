@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fb057fd-8faa-4884-8af7-aa8966c43ef8" name="Default" comment="" />
+    <list default="true" id="3fb057fd-8faa-4884-8af7-aa8966c43ef8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/controllers/PersonController.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/controllers/PersonController.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/models/HelperModels.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/models/HelperModels.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/repositories/PersonRepository.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/repositories/PersonRepository.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/PersonController.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers/WalletController.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/repositories/PersonRepository.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/repositories/WalletRepository.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/ConnectionManager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/ConnectionManager.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/Authorization/AuthenticationController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/Authorization/AuthenticationController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/Authorization/VerifyToken.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/Authorization/VerifyToken.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/employee-controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/employee-controller.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/deposits.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/deposits.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/employee-entity.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/employee-entity.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/withdrawal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/withdrawal.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/models/ResponseModel.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/models/ResponseModel.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/employee-repository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/employee-repository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repository/employee-repository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repository/employee-repository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controllers/employee-controller.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/entities/deposits.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/entities/employee-entity.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/entities/withdrawal.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/repositories/employee-repository.ts" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/ResponseModel.ts" afterPath="$PROJECT_DIR$/src/models/HelperModels.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.js" afterPath="$PROJECT_DIR$/dist/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.js.map" afterPath="$PROJECT_DIR$/dist/app.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js" afterPath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/UserController.js" afterPath="$PROJECT_DIR$/dist/controllers/UserController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/UserController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/UserController.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/addresses.js" afterPath="$PROJECT_DIR$/dist/entities/addresses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/addresses.js.map" afterPath="$PROJECT_DIR$/dist/entities/addresses.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/people.js" afterPath="$PROJECT_DIR$/dist/entities/people.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/people.js.map" afterPath="$PROJECT_DIR$/dist/entities/people.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/transactions.js" afterPath="$PROJECT_DIR$/dist/entities/transactions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/transactions.js.map" afterPath="$PROJECT_DIR$/dist/entities/transactions.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/users.js" afterPath="$PROJECT_DIR$/dist/entities/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/users.js.map" afterPath="$PROJECT_DIR$/dist/entities/users.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/wallets.js" afterPath="$PROJECT_DIR$/dist/entities/wallets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/wallets.js.map" afterPath="$PROJECT_DIR$/dist/entities/wallets.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.ts" afterPath="$PROJECT_DIR$/src/app.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" afterPath="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/UserController.ts" afterPath="$PROJECT_DIR$/src/controllers/UserController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/addresses.ts" afterPath="$PROJECT_DIR$/src/entities/addresses.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/people.ts" afterPath="$PROJECT_DIR$/src/entities/people.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/transactions.ts" afterPath="$PROJECT_DIR$/src/entities/transactions.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/users.ts" afterPath="$PROJECT_DIR$/src/entities/users.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entities/wallets.ts" afterPath="$PROJECT_DIR$/src/entities/wallets.ts" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,14 +76,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="UserController.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+    <leaf>
+      <file leaf-file-name="WalletController.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/WalletController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+            <state relative-caret-position="760">
+              <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding>
-                <element signature="e#0#167#0" expanded="true" />
+                <element signature="e#2#87#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -27,20 +92,52 @@
       <file leaf-file-name="UserRepository.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="320">
+              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthenticationController.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controllers/AuthenticationController.ts">
+      <file leaf-file-name="addresses.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/addresses.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="88" />
+            <state relative-caret-position="-1032">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wallets.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/wallets.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding>
-                <element signature="e#0#157#0" expanded="true" />
+                <element signature="e#0#139#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entities/users.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1031">
+              <caret line="120" column="21" lean-forward="false" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WalletRepository.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/repositories/WalletRepository.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,6 +163,9 @@
       <find>verify</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -81,22 +181,31 @@
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/repositories/employee-repository.ts" />
         <option value="$PROJECT_DIR$/src/controllers/UserController" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/ConnectionManager.ts" />
         <option value="$PROJECT_DIR$/src/ormconfig.json" />
         <option value="$PROJECT_DIR$/src/common/app-config.ts" />
         <option value="$PROJECT_DIR$/src/models/ErrorModel.ts" />
         <option value="$PROJECT_DIR$/src/models/app.ts" />
         <option value="$PROJECT_DIR$/src/models/ErrModel.ts" />
-        <option value="$PROJECT_DIR$/src/models/ResponseModel.ts" />
         <option value="$PROJECT_DIR$/src/common/hashing.ts" />
         <option value="$PROJECT_DIR$/src/controllers/Authorization/VerifyToken.ts" />
         <option value="$PROJECT_DIR$/src/controllers/Authorization/AuthenticationController.ts" />
-        <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/middlewares/token-guard.ts" />
-        <option value="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" />
         <option value="$PROJECT_DIR$/src/repositories/UserRepository.ts" />
+        <option value="$PROJECT_DIR$/src/entities/users.ts" />
+        <option value="$PROJECT_DIR$/src/entities/people.ts" />
+        <option value="$PROJECT_DIR$/src/repositories/PersonRepository.ts" />
+        <option value="$PROJECT_DIR$/src/models/ResponseModel.ts" />
+        <option value="$PROJECT_DIR$/src/models/HelperModels.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/PersonController.ts" />
+        <option value="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" />
         <option value="$PROJECT_DIR$/src/controllers/UserController.ts" />
+        <option value="$PROJECT_DIR$/src/entities/wallets.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/app.ts" />
+        <option value="$PROJECT_DIR$/hashtrader_exchange_script.sql" />
+        <option value="$PROJECT_DIR$/src/controllers/WalletController.ts" />
+        <option value="$PROJECT_DIR$/src/repositories/WalletRepository.ts" />
       </list>
     </option>
   </component>
@@ -110,9 +219,13 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-14" />
-    <option name="width" value="1948" />
-    <option name="height" value="2074" />
+    <option name="x" value="-16" />
+    <option name="y" value="-16" />
+    <option name="width" value="3872" />
+    <option name="height" value="2092" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -129,6 +242,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -183,19 +298,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -628,14 +737,17 @@
       <workItem from="1529698116957" duration="23494000" />
       <workItem from="1529763568264" duration="15072000" />
       <workItem from="1529852152311" duration="23697000" />
+      <workItem from="1529904164924" duration="5421000" />
+      <workItem from="1529932659772" duration="5304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70172000" />
+    <option name="totallyTimeSpent" value="80897000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="0" width="1948" height="2074" extended-state="0" />
+    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -645,15 +757,16 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12473958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -665,7 +778,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915533" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -712,10 +824,38 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#167#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AuthenticationController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
-            <element signature="e#0#167#0" expanded="true" />
+            <element signature="e#0#167#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -724,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,8 +872,7 @@
         <state relative-caret-position="560">
           <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding>
-            <element signature="e#0#35#0" expanded="false" />
-            <element signature="e#347#414#0" expanded="false" />
+            <element signature="e#347#407#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -744,7 +882,7 @@
         <state relative-caret-position="480">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#157#0" expanded="true" />
+            <element signature="e#0#157#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,7 +892,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#167#0" expanded="true" />
+            <element signature="e#0#167#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,8 +902,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#35#0" expanded="false" />
-            <element signature="e#347#414#0" expanded="false" />
+            <element signature="e#347#407#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -777,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,13 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/deposits.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entities/transactions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="977">
@@ -816,18 +945,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/users.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/common/app-config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -852,15 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-161">
           <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,92 +988,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3366">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/addresses.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/ErrorModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/PersonController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts" />
+    <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts" />
+    <entry file="file://$PROJECT_DIR$/src/controllers/ErrorModel.ts" />
     <entry file="file://$PROJECT_DIR$/src/common/app-config.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/ResponseModel.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/Authorization/VerifyToken.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-            <element signature="e#347#414#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/Authorization/VerifyToken.ts" />
     <entry file="file://$PROJECT_DIR$/src/middlewares/token-guard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,6 +1013,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="9" column="30" lean-forward="false" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/people.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#139#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/HelperModels.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/PersonRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/AuthenticationController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#157#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/coins.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/PersonController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#167#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2200">
+          <caret line="55" column="60" lean-forward="false" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#167#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/withdrawal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/deposits.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -981,30 +1108,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AuthenticationController.ts">
+    <entry file="file://$PROJECT_DIR$/src/app.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="88" />
+        <state relative-caret-position="160">
+          <caret line="10" column="3" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
-            <element signature="e#0#157#0" expanded="true" />
+            <element signature="e#347#407#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/users.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1031">
+          <caret line="120" column="21" lean-forward="false" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hashtrader_exchange_script.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/addresses.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1032">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="320">
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
+    <entry file="file://$PROJECT_DIR$/src/controllers/WalletController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        <state relative-caret-position="760">
+          <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
           <folding>
-            <element signature="e#0#167#0" expanded="true" />
+            <element signature="e#2#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entities/wallets.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositories/WalletRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>

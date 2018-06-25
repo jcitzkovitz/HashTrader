@@ -24,7 +24,7 @@ export class UserController {
         try{
             return await this.userRepo.getAll(where);
         } catch (err){
-            console.log('ERROR: '+ err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -35,7 +35,7 @@ export class UserController {
             if(chosenUsername)  return {success: false, message: 'That username has already been selected!'};
             return {success: true, message: "Username is good!"};
         } catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -45,7 +45,7 @@ export class UserController {
         try{
             return await this.userRepo.updateUser(id,user);
         } catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -59,7 +59,7 @@ export class UserController {
 
             return await this.userRepo.updatePassword(id,{passwordHash: this.hashing.hash(body.newPassword,salt), salt: salt});
         } catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -73,7 +73,7 @@ export class UserController {
             return await this.userRepo.updateUser(id,user);
 
         }catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -86,7 +86,7 @@ export class UserController {
             user.passport = body.image;
             return await this.userRepo.updateUser(id,user);
         }catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -99,7 +99,7 @@ export class UserController {
             user.photoWPassport = body.image;
             return await this.userRepo.updateUser(id,user);
         }catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -111,7 +111,7 @@ export class UserController {
             user.driversLicense = body.image;
             return await this.userRepo.updateUser(id,user);
         }catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 
@@ -120,7 +120,7 @@ export class UserController {
         try{
             return await this.userRepo.deleteUser(id);
         }catch(err){
-            console.log(err);
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 }

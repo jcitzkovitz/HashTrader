@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
+	"compile_run": "rmdir dist /s && mkdir dist && tsc && npm start",
     "generate_entities": "npx typeorm-model-generator -h localhost -d hashtrader_exchange -u root -x Jcrocks8181 -e \"mysql\" -o C:\\Users\\jcitz\\Desktop\\Project\\Temp2\\hashtrader\\src"
   },
   "author": "Jordan Itzkovitz",

@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const users_1 = require("./users");
 const addresses_1 = require("./addresses");
-const deposits_1 = require("./deposits");
 let wallets = class wallets {
 };
 __decorate([
@@ -25,15 +24,7 @@ __decorate([
     __metadata("design:type", Number)
 ], wallets.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column("double", {
-        nullable: false,
-        precision: 22,
-        name: "balance"
-    }),
-    __metadata("design:type", Number)
-], wallets.prototype, "balance", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => users_1.users, users => users.walletss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.OneToOne(type => users_1.users, users => users.wallets, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
     typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", users_1.users)
 ], wallets.prototype, "user", void 0);
@@ -41,13 +32,9 @@ __decorate([
     typeorm_1.OneToMany(type => addresses_1.addresses, addresses => addresses.wallet, { onDelete: 'RESTRICT' }),
     __metadata("design:type", Array)
 ], wallets.prototype, "addressess", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => deposits_1.deposits, deposits => deposits.wallet, { onDelete: 'RESTRICT' }),
-    __metadata("design:type", Array)
-], wallets.prototype, "depositss", void 0);
 wallets = __decorate([
     typeorm_1.Entity("wallets", { schema: "hashtrader_exchange" }),
-    typeorm_1.Index("userId", ["user",])
+    typeorm_1.Index("userId", ["user",], { unique: true })
 ], wallets);
 exports.wallets = wallets;
 //# sourceMappingURL=wallets.js.map

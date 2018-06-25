@@ -3,6 +3,7 @@ import {users} from "./users";
 
 
 @Entity("people",{schema:"hashtrader_exchange"})
+@Index("userId",["user",],{unique:true})
 export class people {
 
     @Column("int",{ 
@@ -69,29 +70,9 @@ export class people {
     streetAddress:string;
         
 
-    @Column("longblob",{ 
-        nullable:true,
-        name:"passportPhoto"
-        })
-    passportPhoto:Buffer | null;
-        
-
-    @Column("longblob",{ 
-        nullable:true,
-        name:"photoWithPassport"
-        })
-    photoWithPassport:Buffer | null;
-        
-
-    @Column("longblob",{ 
-        nullable:true,
-        name:"driversLicensePhoto"
-        })
-    driversLicensePhoto:Buffer | null;
-        
-
    
-    @OneToMany(type=>users, users=>users.person,{ onDelete: 'CASCADE' })
-    userss:users[];
-    
+    @OneToOne(type=>users, users=>users.people,{ onDelete: 'CASCADE',onUpdate: 'RESTRICT' })
+    @JoinColumn({ name:'userId'})
+    user:users | null;
+
 }

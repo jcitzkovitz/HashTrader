@@ -1,13 +1,12 @@
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
-import {people} from "./people";
 import {orders} from "./orders";
+import {people} from "./people";
 import {transactions} from "./transactions";
 import {wallets} from "./wallets";
 
 
 @Entity("users",{schema:"hashtrader_exchange"})
-@Index("username_UNIQUE",["username",],{unique:true})
-@Index("personId",["person",])
+@Index("username",["username",],{unique:true})
 export class users {
 
     @Column("int",{ 
@@ -38,7 +37,7 @@ export class users {
 
     @Column("varchar",{ 
         nullable:false,
-        length:32,
+        length:256,
         name:"salt"
         })
     salt:string;
@@ -113,15 +112,14 @@ export class users {
         
 
    
-    @ManyToOne(type=>people, people=>people.userss,{ onDelete: 'CASCADE',onUpdate: 'RESTRICT' })
-    @JoinColumn({ name:'personId'})
-    person:people | null;
-
-
-   
     @OneToMany(type=>orders, orders=>orders.user,{ onDelete: 'RESTRICT' })
     orderss:orders[];
     
+
+   
+    @OneToOne(type=>people, people=>people.user,{ onDelete: 'CASCADE' })
+    people:people | null;
+
 
    
     @OneToMany(type=>transactions, transactions=>transactions.user,{ onDelete: 'RESTRICT' })
@@ -129,7 +127,7 @@ export class users {
     
 
    
-    @OneToMany(type=>wallets, wallets=>wallets.user,{ onDelete: 'RESTRICT' })
-    walletss:wallets[];
-    
+    @OneToOne(type=>wallets, wallets=>wallets.user,{ onDelete: 'RESTRICT' })
+    wallets:wallets | null;
+
 }

@@ -39,7 +39,7 @@ let UserController = class UserController {
                 return yield this.userRepo.getAll(where);
             }
             catch (err) {
-                console.log('ERROR: ' + err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -52,7 +52,7 @@ let UserController = class UserController {
                 return { success: true, message: "Username is good!" };
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -62,7 +62,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updateUser(id, user);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -76,7 +76,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updatePassword(id, { passwordHash: this.hashing.hash(body.newPassword, salt), salt: salt });
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -89,7 +89,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updateUser(id, user);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -102,7 +102,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updateUser(id, user);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -115,7 +115,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updateUser(id, user);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -128,7 +128,7 @@ let UserController = class UserController {
                 return yield this.userRepo.updateUser(id, user);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }
@@ -138,7 +138,7 @@ let UserController = class UserController {
                 return yield this.userRepo.deleteUser(id);
             }
             catch (err) {
-                console.log(err);
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }

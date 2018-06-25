@@ -64,7 +64,7 @@ let AuthenticationController = class AuthenticationController {
                 if (!(user[0].passwordHash === this.hashing.hash(body.password, user[0].salt)))
                     throw new routing_controllers_1.UnauthorizedError('The password entered is invalid');
                 //Generate a google token and check if it matches with the system ID SET UP
-                if (user[0].googleAuth != null) {
+                if (user[0].googleAuth !== null) {
                     let googleTok = this.auth.generateToken(user[0].googleAuth);
                     if (this.auth.verifyToken(user[0].googleAuth, googleTok).delta != 0)
                         throw new routing_controllers_1.UnauthorizedError('The Google Authenticator was not validated');
@@ -79,7 +79,7 @@ let AuthenticationController = class AuthenticationController {
                 };
             }
             catch (err) {
-                return { success: false, message: err.name + ": FUCK " + err.message };
+                return { success: false, message: err.name + ": " + err.message };
             }
         });
     }

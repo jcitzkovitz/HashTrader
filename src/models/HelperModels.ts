@@ -3,3 +3,8 @@ export interface ResponseModel {
     message: string;
     response?: any
 }
+
+export interface SelectWhereModel  {
+    select: string[],
+    where: any
+};

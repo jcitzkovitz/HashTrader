@@ -17,12 +17,12 @@ export class addresses {
     id:number;
         
 
-    @Column("binary",{ 
+    @Column("varchar",{ 
         nullable:false,
-        length:64,
+        length:256,
         name:"addressHash"
         })
-    addressHash:Buffer;
+    addressHash:string;
         
 
     @Column("varchar",{ 
@@ -31,6 +31,15 @@ export class addresses {
         name:"salt"
         })
     salt:string;
+        
+
+    @Column("double",{ 
+        nullable:false,
+        default:"0",
+        precision:22,
+        name:"balance"
+        })
+    balance:number;
         
 
    

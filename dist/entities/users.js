@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const people_1 = require("./people");
 const orders_1 = require("./orders");
+const people_1 = require("./people");
 const transactions_1 = require("./transactions");
 const wallets_1 = require("./wallets");
 let users = class users {
@@ -45,7 +45,7 @@ __decorate([
 __decorate([
     typeorm_1.Column("varchar", {
         nullable: false,
-        length: 32,
+        length: 256,
         name: "salt"
     }),
     __metadata("design:type", String)
@@ -119,26 +119,24 @@ __decorate([
     __metadata("design:type", Boolean)
 ], users.prototype, "photoWPassport", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => people_1.people, people => people.userss, { onDelete: 'CASCADE', onUpdate: 'RESTRICT' }),
-    typeorm_1.JoinColumn({ name: 'personId' }),
-    __metadata("design:type", people_1.people)
-], users.prototype, "person", void 0);
-__decorate([
     typeorm_1.OneToMany(type => orders_1.orders, orders => orders.user, { onDelete: 'RESTRICT' }),
     __metadata("design:type", Array)
 ], users.prototype, "orderss", void 0);
+__decorate([
+    typeorm_1.OneToOne(type => people_1.people, people => people.user, { onDelete: 'CASCADE' }),
+    __metadata("design:type", people_1.people)
+], users.prototype, "people", void 0);
 __decorate([
     typeorm_1.OneToMany(type => transactions_1.transactions, transactions => transactions.user, { onDelete: 'RESTRICT' }),
     __metadata("design:type", Array)
 ], users.prototype, "transactionss", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => wallets_1.wallets, wallets => wallets.user, { onDelete: 'RESTRICT' }),
-    __metadata("design:type", Array)
-], users.prototype, "walletss", void 0);
+    typeorm_1.OneToOne(type => wallets_1.wallets, wallets => wallets.user, { onDelete: 'RESTRICT' }),
+    __metadata("design:type", wallets_1.wallets)
+], users.prototype, "wallets", void 0);
 users = __decorate([
     typeorm_1.Entity("users", { schema: "hashtrader_exchange" }),
-    typeorm_1.Index("username_UNIQUE", ["username",], { unique: true }),
-    typeorm_1.Index("personId", ["person",])
+    typeorm_1.Index("username", ["username",], { unique: true })
 ], users);
 exports.users = users;
 //# sourceMappingURL=users.js.map

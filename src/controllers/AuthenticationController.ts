@@ -7,7 +7,7 @@ import {users}  from "../entities/users";
 import {error} from "util";
 import * as appConfig from "../common/app-config";
 import {Hashing} from "../common/hashing";
-import {ResponseModel} from "../models/ResponseModel";
+import {ResponseModel} from "../models/HelperModels";
 
 @JsonController("/auth")
 export class AuthenticationController {
@@ -50,7 +50,7 @@ export class AuthenticationController {
                 throw new UnauthorizedError('The password entered is invalid');
 
             //Generate a google token and check if it matches with the system ID SET UP
-            if(user[0].googleAuth != null){
+            if(user[0].googleAuth !== null){
                 let googleTok = this.auth.generateToken(user[0].googleAuth);
                 if(this.auth.verifyToken(user[0].googleAuth,googleTok).delta != 0)
                     throw new UnauthorizedError('The Google Authenticator was not validated');
@@ -66,7 +66,7 @@ export class AuthenticationController {
                 response: {id: user[0].id, token: jsonToken}
             };
         } catch (err){
-            return {success: false, message: err.name + ": FUCK " + err.message};
+            return {success: false, message: err.name + ": " + err.message};
         }
     }
 

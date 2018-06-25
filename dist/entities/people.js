@@ -78,32 +78,13 @@ __decorate([
     __metadata("design:type", String)
 ], people.prototype, "streetAddress", void 0);
 __decorate([
-    typeorm_1.Column("longblob", {
-        nullable: true,
-        name: "passportPhoto"
-    }),
-    __metadata("design:type", Buffer)
-], people.prototype, "passportPhoto", void 0);
-__decorate([
-    typeorm_1.Column("longblob", {
-        nullable: true,
-        name: "photoWithPassport"
-    }),
-    __metadata("design:type", Buffer)
-], people.prototype, "photoWithPassport", void 0);
-__decorate([
-    typeorm_1.Column("longblob", {
-        nullable: true,
-        name: "driversLicensePhoto"
-    }),
-    __metadata("design:type", Buffer)
-], people.prototype, "driversLicensePhoto", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => users_1.users, users => users.person, { onDelete: 'CASCADE' }),
-    __metadata("design:type", Array)
-], people.prototype, "userss", void 0);
+    typeorm_1.OneToOne(type => users_1.users, users => users.people, { onDelete: 'CASCADE', onUpdate: 'RESTRICT' }),
+    typeorm_1.JoinColumn({ name: 'userId' }),
+    __metadata("design:type", users_1.users)
+], people.prototype, "user", void 0);
 people = __decorate([
-    typeorm_1.Entity("people", { schema: "hashtrader_exchange" })
+    typeorm_1.Entity("people", { schema: "hashtrader_exchange" }),
+    typeorm_1.Index("userId", ["user",], { unique: true })
 ], people);
 exports.people = people;
 //# sourceMappingURL=people.js.map

@@ -9,7 +9,6 @@ import * as jwt from 'jsonwebtoken';
 /**
  * Controllers (route handlers).
  */
-import * as empController from "./controllers/employee-controller";
 import {UserController} from "./controllers/UserController";
 import {AuthenticationController} from "./controllers/AuthenticationController";
 

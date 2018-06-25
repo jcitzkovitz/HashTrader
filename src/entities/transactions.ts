@@ -1,7 +1,5 @@
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
 import {users} from "./users";
-import {deposits} from "./deposits";
-import {withdrawal} from "./withdrawal";
 
 
 @Entity("transactions",{schema:"hashtrader_exchange"})
@@ -69,14 +67,4 @@ export class transactions {
         })
     type:string;
         
-
-   
-    @OneToMany(type=>deposits, deposits=>deposits.transaction,{ onDelete: 'RESTRICT' })
-    depositss:deposits[];
-    
-
-   
-    @OneToMany(type=>withdrawal, withdrawal=>withdrawal.transaction,{ onDelete: 'RESTRICT' })
-    withdrawals:withdrawal[];
-    
 }
