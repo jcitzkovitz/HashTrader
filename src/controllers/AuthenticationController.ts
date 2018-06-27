@@ -7,7 +7,7 @@ import {users}  from "../entities/users";
 import {error} from "util";
 import * as appConfig from "../common/app-config";
 import {Hashing} from "../common/hashing";
-import {ResponseModel} from "../models/HelperModels";
+import {AuthenticationModel, ResponseModel} from "../models/HelperModels";
 
 @JsonController("/auth")
 export class AuthenticationController {
@@ -36,27 +36,10 @@ export class AuthenticationController {
     }
 
     @Post("/login")
-    async login(@Body() body: any){
+     async login(@Body() body: AuthenticationModel){
         try{
-            //Get the user with the correct username
-            console.log(body);
-            let user = await this.userRepo.getAll({username: body.username});
-            if(user.length != 1)
-                throw new NotFoundError('The user was not found in the database');
-            //Decrypt the sent password
-
-            //Check that the password hashes are correct
-            if(!(user[0].passwordHash === this.hashing.hash(body.password,user[0].salt)))
-                throw new UnauthorizedError('The password entered is invalid');
-
-            //Generate a google token and check if it matches with the system ID SET UP
-            if(user[0].googleAuth !== null){
-                let googleTok = this.auth.generateToken(user[0].googleAuth);
-                if(this.auth.verifyToken(user[0].googleAuth,googleTok).delta != 0)
-                    throw new UnauthorizedError('The Google Authenticator was not validated');
-            }
-
-            let jsonToken = this.jwt.sign({id: user[0].id},appConfig.secret,{
+            let userId = await this.authenticateUser(body,["id"]);
+            let jsonToken = this.jwt.sign({id: userId},appConfig.secret,{
                 expiresIn: '8h', algorithm: 'HS256'
             });
 
@@ -64,6 +47,26 @@ export class AuthenticationController {
         } catch (err){
             return new ResponseModel(false,"Login failed: " + err.message,null);
         }
+    }
+
+    async authenticateUser(userInfo:AuthenticationModel,returnInfo:string[]){
+        //Get the user with the correct username
+        let user = await this.userRepo.getAll(returnInfo,{username: userInfo.username});
+        if(user.length != 1)
+            throw new NotFoundError('The user was not found in the database');
+        //Decrypt the sent password
+
+        //Check that the password hashes are correct
+        if(!(user[0].passwordHash === this.hashing.hash(userInfo.password,user[0].salt)))
+            throw new UnauthorizedError('The password entered is invalid');
+
+        //Generate a google token and check if it matches with the system ID SET UP
+        if(user[0].googleAuth !== null){
+            let googleTok = this.auth.generateToken(user[0].googleAuth);
+            if(this.auth.verifyToken(userInfo.googleAuth,googleTok) != 0)
+                throw new UnauthorizedError('The Google Authenticator was not validated');
+        }
+        return user[0];
     }
 
     @Get("/logout")

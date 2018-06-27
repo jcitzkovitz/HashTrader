@@ -21,11 +21,26 @@ export interface SelectWhereModel  {
 }
 
 export interface BalanceChangeModel{
+    userId:number,
+    coinId:number,
     change: {"ADD","SUB"},
     value: number
 }
 
 export interface WithdrawDepositModel{
+    id?:number,
+    username?:string,
+    password?:string,
+    googleAuth?:number,
     coinId:number,
-    value:number
+    value:number,
+    withdrawalLimit?:number,
+    sendToAddress?:string,
+    fee?:number;
+}
+
+export interface AuthenticationModel{
+    username:string,
+    password:string,
+    googleAuth:number
 }

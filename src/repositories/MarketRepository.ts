@@ -5,7 +5,7 @@ export class MarketRepo{
         return getRepository(markets).find();
     }
     getAllFor(coinId:number){
-        return getConnection().createQueryBuilder().from(markets).select().where("coin1Id = :coinId OR coin2Id = :coinId",{coinId:coinId});
+        return getConnection().createQueryBuilder("market").from(markets).select(["ticker"]).innerJoin("market.coinId","id").where("coin1Id = :coinId OR coin2Id = :coinId",{coinId:coinId});
     }
     create(market:markets){
         return getRepository(markets).save(market);

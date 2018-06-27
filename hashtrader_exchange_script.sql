@@ -35,6 +35,7 @@ id int auto_increment PRIMARY KEY,
 ticker VARCHAR(5) UNIQUE NOT NULL,
 name VARCHAR(20) NOT NULL,
 stakeable ENUM ('YES','NO') DEFAULT 'NO',
+marketType ENUM ('MAIN','OTHER') DEFAULT 'OTHER',
 coinWebsite VARCHAR(64),
 coinBlockExplore VARCHAR(64)
 );
@@ -44,7 +45,8 @@ id int auto_increment PRIMARY KEY,
 coin1Id int NOT NULL,
 coin2Id int NOT NULL,
 FOREIGN KEY (coin1Id) REFERENCES Coins(id),
-FOREIGN KEY (coin2Id) REFERENCES Coins(id)
+FOREIGN KEY (coin2Id) REFERENCES Coins(id),
+CHECK(Markets.coin1Id != Markets.coin2Id)
 );
 
 CREATE TABLE hashtrader_exchange.Orders (
@@ -55,13 +57,13 @@ amount REAL NOT NULL,
 total REAL NOT NULL,
 status ENUM ('FILLED', 'NOT FILLED','CANCELLED'),
 type ENUM ('BUY','SELL'),
-sellCoin VARCHAR(5) NOT NULL,
-buyCoin VARCHAR(5) NOT NULL,
+sellCoin int NOT NULL,
+buyCoin int NOT NULL,
 marketId int NOT NULL,
 userId int NOT NULL,
 FOREIGN KEY (userId) REFERENCES Users(id), 
-FOREIGN KEY (sellCoin) REFERENCES Coins(ticker),
-FOREIGN KEY (buyCoin) REFERENCES Coins(ticker),
+FOREIGN KEY (sellCoin) REFERENCES Coins(id),
+FOREIGN KEY (buyCoin) REFERENCES Coins(id),
 FOREIGN KEY (marketId) REFERENCES Markets(id) 
 );
 
@@ -73,8 +75,10 @@ amount REAL NOT NULL,
 fee REAL NOT NULL,
 dateTime DATETIME NOT NULL,
 userId int NOT NULL,
+coinId int NOT NULL,
 type ENUM ('DEPOSIT','WITHDRAWAL') NOT NULL,
-FOREIGN KEY (userId) REFERENCES Users(id)
+FOREIGN KEY (userId) REFERENCES Users(id),
+FOREIGN KEY (coinId) REFERENCES Coins(id)
 );
 
 CREATE TABLE hashtrader_exchange.Wallets(

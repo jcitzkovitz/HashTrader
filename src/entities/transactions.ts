@@ -1,9 +1,11 @@
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, ManyToMany, JoinColumn, JoinTable, RelationId} from "typeorm";
 import {users} from "./users";
+import {coins} from "./coins";
 
 
 @Entity("transactions",{schema:"hashtrader_exchange"})
 @Index("userId",["user",])
+@Index("coinId",["coin",])
 export class transactions {
 
     @Column("int",{ 
@@ -58,6 +60,12 @@ export class transactions {
     @ManyToOne(type=>users, users=>users.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
     @JoinColumn({ name:'userId'})
     user:users | null;
+
+
+   
+    @ManyToOne(type=>coins, coins=>coins.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @JoinColumn({ name:'coinId'})
+    coin:coins | null;
 
 
     @Column("enum",{ 

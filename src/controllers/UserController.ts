@@ -20,7 +20,6 @@ export class UserController {
     jwt = require('jsonwebtoken');
     hashing: Hashing = new Hashing();
 
-
     @Get("/checkUsername/:username")
     async checkUsernameAvail(@Param("username") username:string){
         try{

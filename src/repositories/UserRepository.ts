@@ -1,12 +1,13 @@
 import {users} from "../entities/users";
 import {getConnection, getRepository} from "typeorm";
+import {SelectWhereModel} from "../models/HelperModels";
 
 export class UserRepo{
 
-    getAll(where?:any){
+    getAll(selectWhere?:SelectWhereModel){
         return getRepository(users).find({
-            select: ["username"],
-            where: where});
+            select: selectWhere.select,
+            where: selectWhere.where});
     }
 
     getOne(id:number){

@@ -2,6 +2,7 @@ import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, Man
 import {addresses} from "./addresses";
 import {markets} from "./markets";
 import {orders} from "./orders";
+import {transactions} from "./transactions";
 
 
 @Entity("coins",{schema:"hashtrader_exchange"})
@@ -43,6 +44,15 @@ export class coins {
     stakeable:string | null;
         
 
+    @Column("enum",{ 
+        nullable:true,
+        default:"OTHER",
+        enum:["MAIN","OTHER"],
+        name:"marketType"
+        })
+    marketType:string | null;
+        
+
     @Column("varchar",{ 
         nullable:true,
         length:64,
@@ -82,5 +92,10 @@ export class coins {
    
     @OneToMany(type=>orders, orders=>orders.buyCoin,{ onDelete: 'RESTRICT' })
     orderss2:orders[];
+    
+
+   
+    @OneToMany(type=>transactions, transactions=>transactions.coin,{ onDelete: 'RESTRICT' })
+    transactionss:transactions[];
     
 }

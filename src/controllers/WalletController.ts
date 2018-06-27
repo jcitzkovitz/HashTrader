@@ -5,7 +5,6 @@ import {verify} from "../middlewares/token-guard";
 import {WalletRepo} from "../repositories/WalletRepository";
 import {AddressRepo} from "../repositories/AddressRepository";
 import {BalanceChangeModel, ResponseModel} from "../models/HelperModels";
-import {UserRepo} from "../repositories/UserRepository";
 
 @JsonController("/wallet")
 @UseBefore(verify)
@@ -13,12 +12,11 @@ export class WalletController {
 
     walletRepo: WalletRepo = new WalletRepo();
     addressRepo: AddressRepo = new AddressRepo();
-    userRepo: UserRepo = new UserRepo();
 
-    @Get("/:id/:coinId")
-    async getBalanceForCoin(@Param("id") id:number, @Param("coinId") coinId:number){
+    @Get("/:userId/:coinId")
+    async getBalanceForCoin(@Param("userId") userId:number, @Param("coinId") coinId:number){
         try{
-            let walletId = await this.walletRepo.getWalletForUser(id);
+            let walletId = await this.walletRepo.getWalletForUser(userId);
             let response = await this.addressRepo.getBalanceForCoin(walletId,coinId);
             return new ResponseModel(true,'The balance has been selected successfully',response);
         }catch(err){
@@ -26,10 +24,10 @@ export class WalletController {
         }
     }
 
-    @Get("/:id")
-    async getWallet(@Param("id") id:number){
+    @Get("/:userId")
+    async getWallet(@Param("userId") userId:number){
         try{
-            let walletId = await this.walletRepo.getWalletForUser(id);
+            let walletId = await this.walletRepo.getWalletForUser(userId);
             let response = await this.addressRepo.getAllBalances(walletId);
             return new ResponseModel(true,'The wallet has been selected successfully',response)
         }catch(err){
@@ -37,26 +35,22 @@ export class WalletController {
         }
     }
 
-    @Put("/:id/:coinId")
-    async updateBalanceForCoin(@Param("id") id:number, @Param("coinId") coinId:number, @Body() body:BalanceChangeModel){
-        try{
-            let walletId = await this.walletRepo.getWalletForUser(userId);
-            let balance = await this.addressRepo.getBalanceForCoin(walletId,coinId);
-            if(body.change == "ADD")
-                balance+=body.value;
-            else if(balance - body.value >= 0)
-                balance-=body.value;
-            else
-                throw new Error("There are insufficient funds in this wallet for this transaction");
-            let response = await this.addressRepo.updateBalance(walletId,coinId,balance);
-            return new ResponseModel(true,'The balance has been updated',response);
-        }catch(err){
-            return new ResponseModel(false,'The balance could not be updated: '+err.message,null);
-        }
+
+    async updateBalanceForCoin(balanceChange:BalanceChangeModel){
+        let walletId = await this.walletRepo.getWalletForUser(balanceChange.userId);
+        let balance = await this.addressRepo.getInfoForCoin(walletId,balanceChange.coinId,["balance"]);
+        if(balanceChange.change == "ADD")
+            balance+=balanceChange.value;
+        else if(balance - balanceChange.value >= 0)
+            balance-=balanceChange.value;
+        else
+            throw new Error("There are insufficient funds in this wallet for this transaction");
+        let response = this.addressRepo.updateBalance(walletId,balanceChange.coinId,balance);
+        return {walletId:walletId,response:response};
     }
 
-    @Get("/:id/:coinId")
-    async createNewAddress(@Param("id") id:number, @Param("coinId") coinId:number){
+    @Get("/:userId/:coinId")
+    async createNewAddress(@Param("userId") userId:number, @Param("coinId") coinId:number){
 
     }
 }

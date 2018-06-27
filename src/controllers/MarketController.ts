@@ -3,11 +3,13 @@ import {verify} from "../middlewares/token-guard";
 import {MarketRepo} from "../repositories/MarketRepository";
 import {ResponseModel} from "../models/HelperModels";
 import {markets} from "../entities/markets";
+import {CoinRepo} from "../repositories/CoinRepository";
 @JsonController("/market")
 @UseBefore(verify)
 export class MarketController{
 
     marketRepo: MarketRepo = new MarketRepo();
+    coinRepo: CoinRepo = new CoinRepo();
 
     @Get("/")
     async getAll(){
@@ -33,6 +35,9 @@ export class MarketController{
     async createMarket(@Param("id1") id1:number,@Param("id2") id2:number){
         try{
             //REQUIRES ADMIN AUTHENTICATION
+            //Check that coin1 is a main market coi
+            let coin1 = await this.coinRepo.getOne(id1);
+            if(coin1.marketType != "MAIN") throw new Error("Coin 1 must be a main market coin");
             let response = await this.marketRepo.create({coin1Id:id1,coin2Id:id2});
             return new ResponseModel(true,'The market has been created successfully',response);
         }catch(err){
@@ -47,7 +52,7 @@ export class MarketController{
             let response = await this.marketRepo.delete(id);
             return new ResponseModel(true,'The market has been deleted successfully',response);
         }catch(err){
-            return new ResponseModel(false,'The market coult not be created',null);
+            return new ResponseModel(false,'The market could not be created',null);
         }
     }
 }

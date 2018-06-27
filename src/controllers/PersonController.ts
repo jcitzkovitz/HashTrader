@@ -8,14 +8,12 @@ import {verify} from "../middlewares/token-guard";
 import {PersonRepo} from "../repositories/PersonRepository";
 import {ResponseModel, SelectWhereModel} from "../models/HelperModels";
 import {people} from "../entities/people";
-import {UserRepo} from "../repositories/UserRepository";
 
 @JsonController("/people")
 @UseBefore(verify)
 export class UserController {
 
     personRepo: PersonRepo = new PersonRepo();
-    userRepo: UserRepo = new UserRepo();
 
     @Post("/:id/getPerson")
     async getPerson(@Param("id") id:number){
