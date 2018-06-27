@@ -5,12 +5,12 @@ export class UserRepo{
 
     getAll(where?:any){
         return getRepository(users).find({
-            select: ["id"],
+            select: ["username"],
             where: where});
     }
 
-    getOneWithId(id:number){
-        return getRepository(users).findOne(id);
+    getOne(id:number){
+        return getRepository(users).findOne({where:{id: id}});
     }
 
     checkUsername(username:string){
@@ -37,9 +37,8 @@ export class UserRepo{
         return getConnection().createQueryBuilder().delete().from(users).where("id = :id", {id: id}).execute();
     }
 
-    getId(username: string, passwordHash: string){
-        return getConnection().createQueryBuilder().select("id").from(users,"users").where(
-            "users.username = :username AND users.passwordHash = :passwordHash",{username: username, passwordHash: passwordHash}).execute();
+    getId(username: string){
+        return getRepository(users).find({select:["id"],where:{username:username}});
     }
 
 }

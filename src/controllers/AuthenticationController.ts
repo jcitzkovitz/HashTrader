@@ -29,9 +29,9 @@ export class AuthenticationController {
         try{
             let newUser = await this.userRepo.registerUser(user);
             let id =  await this.userRepo.getId(newUser.username,newUser.passwordHash);
-            return {success: true, message: "Registered Succesfully", response: id}
+            return new ResponseModel(true,'Registration Succesful',id);
         } catch(err){
-            return {success: false, message: "Registration Failed: " + err};
+            return new ResponseModel(false,'Registration failed: '+err.message,null);
         }
     }
 
@@ -60,19 +60,15 @@ export class AuthenticationController {
                 expiresIn: '8h', algorithm: 'HS256'
             });
 
-            return {
-                success: true,
-                message: "Login Succesful",
-                response: {id: user[0].id, token: jsonToken}
-            };
+            return new ResponseModel(true,'Login succesful',{id: user[0].id, token: jsonToken});
         } catch (err){
-            return {success: false, message: err.name + ": " + err.message};
+            return new ResponseModel(false,"Login failed: " + err.message,null);
         }
     }
 
     @Get("/logout")
     logout(){
-        return {success:false}
+
     }
 
 }

@@ -8,37 +8,42 @@ import {verify} from "../middlewares/token-guard";
 import {PersonRepo} from "../repositories/PersonRepository";
 import {ResponseModel, SelectWhereModel} from "../models/HelperModels";
 import {people} from "../entities/people";
+import {UserRepo} from "../repositories/UserRepository";
 
 @JsonController("/people")
 @UseBefore(verify)
 export class UserController {
 
     personRepo: PersonRepo = new PersonRepo();
+    userRepo: UserRepo = new UserRepo();
 
-    @Post("/getPeople")
-    async getPeople(@Body() body:SelectWhereModel){
+    @Post("/:id/getPerson")
+    async getPerson(@Param("id") id:number){
         try{
-            return await this.personRepo.getAll(body.select,body.where)
+            let response = await this.personRepo.getOne(id);
+            return new ResponseModel(true,'The person was found succesfully',response)
         }catch(err){
-            return {success: false, message: err.name + ": " + err.message};
+            return new ResponseModel(false,'The person could not be found: '+err.message,null);
         }
     }
 
     @Post("/")
     async savePerson(@Body() person: people){
         try{
-            return await this.personRepo.savePerson(person)
+            let response = await this.personRepo.savePerson(person);
+            return new ResponseModel(true,'The person was saved succesfully',response);
         }catch(err){
-            return {success: false, message: err.name + ": " + err.message};
+            return new ResponseModel(false,'The person could not be saved: '+err.message,null);
         }
     }
 
     @Put("/:id")
-    async updatePerson(@Param("userId") userId: number, @Body() person: people){
+    async updatePerson(@Param("id") id: number, @Body() person: people){
         try{
-            return await this.personRepo.updatePerson(userId,person);
+            let response = await this.personRepo.updatePerson(id,person);
+            return new ResponseModel(true,'The person has been updated succesfully',response);
         }catch(err){
-            return {success: false, message: err.name + ": " + err.message};
+            return new ResponseModel(false,'The person could not be updated: '+err.message,null);
         }
     }
 }

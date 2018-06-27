@@ -8,6 +8,10 @@ export class PersonRepo{
             where: where});
     }
 
+    getOne(userId:number){
+        return getRepository(people).find({where:{userId:userId}});
+    }
+
     savePerson(person: people){
         return getRepository(people).save(person);
     }
