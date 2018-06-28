@@ -71,7 +71,7 @@ export class people {
         
 
    
-    @OneToOne(type=>users, users=>users.people,{ onDelete: 'CASCADE',onUpdate: 'RESTRICT' })
+    @OneToOne(type=>users, users=>users.people,{ onDelete: 'CASCADE',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'userId'})
     user:users | null;
 

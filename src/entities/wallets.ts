@@ -17,7 +17,7 @@ export class wallets {
         
 
    
-    @OneToOne(type=>users, users=>users.wallets,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @OneToOne(type=>users, users=>users.wallets,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'userId'})
     user:users | null;
 

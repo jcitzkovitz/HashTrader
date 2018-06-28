@@ -15,15 +15,10 @@ export class ResponseModel{
     }
 }
 
-export interface SelectWhereModel  {
-    select: string[],
-    where: any
-}
-
 export interface BalanceChangeModel{
     userId:number,
     coinId:number,
-    change: {"ADD","SUB"},
+    change: string,
     value: number
 }
 
@@ -43,4 +38,10 @@ export interface AuthenticationModel{
     username:string,
     password:string,
     googleAuth:number
+}
+
+export interface UpdateOrderModel{
+    id: number,
+    status: string,
+    amount: number
 }

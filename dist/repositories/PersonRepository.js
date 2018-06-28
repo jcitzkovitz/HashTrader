@@ -9,6 +9,9 @@ class PersonRepo {
             where: where
         });
     }
+    getOne(userId) {
+        return typeorm_1.getRepository(people_1.people).find({ where: { userId: userId } });
+    }
     savePerson(person) {
         return typeorm_1.getRepository(people_1.people).save(person);
     }

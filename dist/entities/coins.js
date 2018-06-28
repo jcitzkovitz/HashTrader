@@ -13,6 +13,7 @@ const typeorm_1 = require("typeorm");
 const addresses_1 = require("./addresses");
 const markets_1 = require("./markets");
 const orders_1 = require("./orders");
+const transactions_1 = require("./transactions");
 let coins = class coins {
 };
 __decorate([
@@ -51,6 +52,15 @@ __decorate([
     __metadata("design:type", String)
 ], coins.prototype, "stakeable", void 0);
 __decorate([
+    typeorm_1.Column("enum", {
+        nullable: true,
+        default: "OTHER",
+        enum: ["MAIN", "OTHER"],
+        name: "marketType"
+    }),
+    __metadata("design:type", String)
+], coins.prototype, "marketType", void 0);
+__decorate([
     typeorm_1.Column("varchar", {
         nullable: true,
         length: 64,
@@ -86,6 +96,10 @@ __decorate([
     typeorm_1.OneToMany(type => orders_1.orders, orders => orders.buyCoin, { onDelete: 'RESTRICT' }),
     __metadata("design:type", Array)
 ], coins.prototype, "orderss2", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => transactions_1.transactions, transactions => transactions.coin, { onDelete: 'RESTRICT' }),
+    __metadata("design:type", Array)
+], coins.prototype, "transactionss", void 0);
 coins = __decorate([
     typeorm_1.Entity("coins", { schema: "hashtrader_exchange" }),
     typeorm_1.Index("ticker", ["ticker",], { unique: true })

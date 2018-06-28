@@ -1,13 +1,10 @@
 import {users} from "../entities/users";
 import {getConnection, getRepository} from "typeorm";
-import {SelectWhereModel} from "../models/HelperModels";
 
 export class UserRepo{
 
-    getAll(selectWhere?:SelectWhereModel){
-        return getRepository(users).find({
-            select: selectWhere.select,
-            where: selectWhere.where});
+    getAll(selectWhere?:any){
+        return getRepository(users).find(selectWhere);
     }
 
     getOne(id:number){
@@ -38,8 +35,8 @@ export class UserRepo{
         return getConnection().createQueryBuilder().delete().from(users).where("id = :id", {id: id}).execute();
     }
 
-    getId(username: string){
-        return getRepository(users).find({select:["id"],where:{username:username}});
+    getId(username: string,passwordHash: string){
+        return getRepository(users).find({select:["id"],where:{username:username,passwordHash:passwordHash}});
     }
 
 }

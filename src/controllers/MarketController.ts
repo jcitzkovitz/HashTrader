@@ -37,8 +37,10 @@ export class MarketController{
             //REQUIRES ADMIN AUTHENTICATION
             //Check that coin1 is a main market coi
             let coin1 = await this.coinRepo.getOne(id1);
+            let coin2 = await this.coinRepo.getOne(id2);
             if(coin1.marketType != "MAIN") throw new Error("Coin 1 must be a main market coin");
-            let response = await this.marketRepo.create({coin1Id:id1,coin2Id:id2});
+            let ticker = coin1.ticker+"_"+coin2.ticker;
+            let response = await this.marketRepo.create({id:0,ticker:ticker,coin:coin1,coin2:coin2,orderss:[]});
             return new ResponseModel(true,'The market has been created successfully',response);
         }catch(err){
             return new ResponseModel(false,'The market could not be created: '+err.message,null);

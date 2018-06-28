@@ -68,25 +68,25 @@ export class orders {
         
 
    
-    @ManyToOne(type=>coins, coins=>coins.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>coins, coins=>coins.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'sellCoin'})
     sellCoin:coins | null;
 
 
    
-    @ManyToOne(type=>coins, coins=>coins.orderss2,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>coins, coins=>coins.orderss2,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'buyCoin'})
     buyCoin:coins | null;
 
 
    
-    @ManyToOne(type=>markets, markets=>markets.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>markets, markets=>markets.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'marketId'})
     market:markets | null;
 
 
    
-    @ManyToOne(type=>users, users=>users.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>users, users=>users.orderss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'userId'})
     user:users | null;
 

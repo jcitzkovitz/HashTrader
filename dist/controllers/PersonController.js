@@ -23,49 +23,53 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const token_guard_1 = require("../middlewares/token-guard");
 const PersonRepository_1 = require("../repositories/PersonRepository");
+const HelperModels_1 = require("../models/HelperModels");
 const people_1 = require("../entities/people");
 let UserController = class UserController {
     constructor() {
         this.personRepo = new PersonRepository_1.PersonRepo();
     }
-    getPeople(body) {
+    getPerson(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.personRepo.getAll(body.select, body.where);
+                let response = yield this.personRepo.getOne(id);
+                return new HelperModels_1.ResponseModel(true, 'The person was found succesfully', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The person could not be found: ' + err.message, null);
             }
         });
     }
     savePerson(person) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.personRepo.savePerson(person);
+                let response = yield this.personRepo.savePerson(person);
+                return new HelperModels_1.ResponseModel(true, 'The person was saved succesfully', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The person could not be saved: ' + err.message, null);
             }
         });
     }
-    updatePerson(userId, person) {
+    updatePerson(id, person) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.personRepo.updatePerson(userId, person);
+                let response = yield this.personRepo.updatePerson(id, person);
+                return new HelperModels_1.ResponseModel(true, 'The person has been updated succesfully', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The person could not be updated: ' + err.message, null);
             }
         });
     }
 };
 __decorate([
-    routing_controllers_1.Post("/getPeople"),
-    __param(0, routing_controllers_1.Body()),
+    routing_controllers_1.Post("/:id/getPerson"),
+    __param(0, routing_controllers_1.Param("id")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "getPeople", null);
+], UserController.prototype, "getPerson", null);
 __decorate([
     routing_controllers_1.Post("/"),
     __param(0, routing_controllers_1.Body()),
@@ -75,7 +79,7 @@ __decorate([
 ], UserController.prototype, "savePerson", null);
 __decorate([
     routing_controllers_1.Put("/:id"),
-    __param(0, routing_controllers_1.Param("userId")), __param(1, routing_controllers_1.Body()),
+    __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, people_1.people]),
     __metadata("design:returntype", Promise)

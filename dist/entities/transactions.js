@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const users_1 = require("./users");
+const coins_1 = require("./coins");
 let transactions = class transactions {
 };
 __decorate([
@@ -67,6 +68,11 @@ __decorate([
     __metadata("design:type", users_1.users)
 ], transactions.prototype, "user", void 0);
 __decorate([
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.transactionss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.JoinColumn({ name: 'coinId' }),
+    __metadata("design:type", coins_1.coins)
+], transactions.prototype, "coin", void 0);
+__decorate([
     typeorm_1.Column("enum", {
         nullable: false,
         enum: ["DEPOSIT", "WITHDRAWAL"],
@@ -76,7 +82,8 @@ __decorate([
 ], transactions.prototype, "type", void 0);
 transactions = __decorate([
     typeorm_1.Entity("transactions", { schema: "hashtrader_exchange" }),
-    typeorm_1.Index("userId", ["user",])
+    typeorm_1.Index("userId", ["user",]),
+    typeorm_1.Index("coinId", ["coin",])
 ], transactions);
 exports.transactions = transactions;
 //# sourceMappingURL=transactions.js.map

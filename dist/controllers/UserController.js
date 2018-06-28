@@ -25,6 +25,7 @@ const UserRepository_1 = require("../repositories/UserRepository");
 const users_1 = require("../entities/users");
 const token_guard_1 = require("../middlewares/token-guard");
 const hashing_1 = require("../common/hashing");
+const HelperModels_1 = require("../models/HelperModels");
 let UserController = class UserController {
     constructor() {
         this.userRepo = new UserRepository_1.UserRepo();
@@ -33,36 +34,27 @@ let UserController = class UserController {
         this.jwt = require('jsonwebtoken');
         this.hashing = new hashing_1.Hashing();
     }
-    getAll(where) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                return yield this.userRepo.getAll(where);
-            }
-            catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
-            }
-        });
-    }
     checkUsernameAvail(username) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let chosenUsername = yield this.userRepo.checkUsername(username);
                 if (chosenUsername)
-                    return { success: false, message: 'That username has already been selected!' };
-                return { success: true, message: "Username is good!" };
+                    return new HelperModels_1.ResponseModel(false, 'This username has already been selected', null);
+                return new HelperModels_1.ResponseModel(true, 'This username is all yours!', null);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'There was an error while looking for usernames: ' + err.message, null);
             }
         });
     }
     updateUser(id, user) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.userRepo.updateUser(id, user);
+                let response = yield this.userRepo.updateUser(id, user);
+                return new HelperModels_1.ResponseModel(true, 'The user was succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The user could not be updated: ' + err.message, null);
             }
         });
     }
@@ -70,86 +62,85 @@ let UserController = class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             let salt = this.hashing.saltGenerator(16);
             try {
-                let user = yield this.userRepo.getOneWithId(id);
+                let user = yield this.userRepo.getOne(id);
                 if (user.passwordHash !== this.hashing.hash(body.oldPassword, user.salt))
                     throw new routing_controllers_1.UnauthorizedError('The original password you have entered is invalid');
-                return yield this.userRepo.updatePassword(id, { passwordHash: this.hashing.hash(body.newPassword, salt), salt: salt });
+                let response = yield this.userRepo.updatePassword(id, { passwordHash: this.hashing.hash(body.newPassword, salt), salt: salt });
+                return new HelperModels_1.ResponseModel(true, 'The password has been succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The password could not be updated: ' + err.message, null);
             }
         });
     }
     setGoogleAuth(id, body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let user = yield this.userRepo.getOneWithId(id);
+                let user = yield this.userRepo.getOne(id);
                 //Set google auth
                 user.googleAuth = body.code;
-                return yield this.userRepo.updateUser(id, user);
+                let response = yield this.userRepo.updateUser(id, user);
+                return new HelperModels_1.ResponseModel(true, 'The google auth was succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The google auth could not be updated: ' + err.message, null);
             }
         });
     }
     setPPPhoto(id, body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let user = yield this.userRepo.getOneWithId(id);
+                let user = yield this.userRepo.getOne(id);
                 //Set file system storage directory hash
                 user.passport = body.image;
-                return yield this.userRepo.updateUser(id, user);
+                let response = yield this.userRepo.updateUser(id, user);
+                return new HelperModels_1.ResponseModel(true, 'The ppp status was succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The ppp status could not be updated: ' + err.message, null);
             }
         });
     }
     setWPPPhoto(id, body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let user = yield this.userRepo.getOneWithId(id);
+                let user = yield this.userRepo.getOne(id);
                 //Set file system storage directory hash
                 user.photoWPassport = body.image;
-                return yield this.userRepo.updateUser(id, user);
+                let response = yield this.userRepo.updateUser(id, user);
+                return new HelperModels_1.ResponseModel(true, 'The wpp status was succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The wpp status could not be updated: ' + err.message, null);
             }
         });
     }
     setDLPhoto(id, body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let user = yield this.userRepo.getOneWithId(id);
+                let user = yield this.userRepo.getOne(id);
                 //Set file system storage directory hash
                 user.driversLicense = body.image;
-                return yield this.userRepo.updateUser(id, user);
+                let response = yield this.userRepo.updateUser(id, user);
+                return new HelperModels_1.ResponseModel(true, 'The dlp status was succesfully updated', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The dlp status could not be updated: ' + err.message, null);
             }
         });
     }
     deleteUser(id) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return yield this.userRepo.deleteUser(id);
+                let response = yield this.userRepo.deleteUser(id);
+                return new HelperModels_1.ResponseModel(true, 'The user was succesfully deleted', response);
             }
             catch (err) {
-                return { success: false, message: err.name + ": " + err.message };
+                return new HelperModels_1.ResponseModel(false, 'The user could not be deleted: ' + err.message, null);
             }
         });
     }
 };
-__decorate([
-    routing_controllers_1.Post("/"),
-    __param(0, routing_controllers_1.Body()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "getAll", null);
 __decorate([
     routing_controllers_1.Get("/checkUsername/:username"),
     __param(0, routing_controllers_1.Param("username")),

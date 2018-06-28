@@ -30,7 +30,7 @@ export class CoinController{
         try{
             //REQUIRES ADMIN AUTHENTICATION
             let coin:coins = body.coin;
-            let response = await this.coinRepo.update(coin);
+            let response = await this.coinRepo.updateCoin(coin);
             return new ResponseModel(true,'The coin was added successfully',response);
         }catch(err){
             return new ResponseModel(false,'The coin could not be added: '+err.message,null);
@@ -38,7 +38,7 @@ export class CoinController{
     }
 
     @Delete("/:id")
-    async deleteCoin(@Param() id:number, @Body() user:users){
+    async deleteCoin(@Param("id") id:number, @Body() user:users){
         try{
             //REQUIRES ADMIN AUTHENTICATION
             let response = await this.coinRepo.deleteCoin(id);
@@ -49,9 +49,9 @@ export class CoinController{
     }
 
     @Get("/:id")
-    async getOne(@Param("id") id:number){
+    async getOneCoinInfo(@Param("id") id:number){
         try{
-            let response = await this.getOne(id);
+            let response = await this.coinRepo.getAllCoinInfo({id:id});
             return new ResponseModel(true,'The coin has been selected successfully',response)
         }catch(err){
             return new ResponseModel(false,'The coin could not be selected: '+err.message,null);
@@ -59,9 +59,9 @@ export class CoinController{
     }
 
     @Get("/")
-    async getAll(where?:any){
+    async getAll(){
         try{
-            let response = await this.coinRepo.getAll(where);
+            let response = await this.coinRepo.getAllCoinInfo();
             return new ResponseModel(true,'All of the coins have been selected successfully',response);
         }catch(err){
             return new ResponseModel(false,'The coins could not be selected: '+ err.message,null);

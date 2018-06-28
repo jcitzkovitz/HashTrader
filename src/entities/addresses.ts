@@ -43,13 +43,13 @@ export class addresses {
         
 
    
-    @ManyToOne(type=>coins, coins=>coins.addressess,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>coins, coins=>coins.addressess,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'coinId'})
     coin:coins | null;
 
 
    
-    @ManyToOne(type=>wallets, wallets=>wallets.addressess,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>wallets, wallets=>wallets.addressess,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'walletId'})
     wallet:wallets | null;
 

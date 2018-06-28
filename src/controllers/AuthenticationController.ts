@@ -43,7 +43,7 @@ export class AuthenticationController {
                 expiresIn: '8h', algorithm: 'HS256'
             });
 
-            return new ResponseModel(true,'Login succesful',{id: user[0].id, token: jsonToken});
+            return new ResponseModel(true,'Login succesful',{id: userId, token: jsonToken});
         } catch (err){
             return new ResponseModel(false,"Login failed: " + err.message,null);
         }
@@ -51,7 +51,7 @@ export class AuthenticationController {
 
     async authenticateUser(userInfo:AuthenticationModel,returnInfo:string[]){
         //Get the user with the correct username
-        let user = await this.userRepo.getAll(returnInfo,{username: userInfo.username});
+        let user = await this.userRepo.getAll({select:returnInfo,where:{username: userInfo.username}});
         if(user.length != 1)
             throw new NotFoundError('The user was not found in the database');
         //Decrypt the sent password

@@ -57,13 +57,13 @@ export class transactions {
         
 
    
-    @ManyToOne(type=>users, users=>users.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>users, users=>users.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'userId'})
     user:users | null;
 
 
    
-    @ManyToOne(type=>coins, coins=>coins.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'RESTRICT' })
+    @ManyToOne(type=>coins, coins=>coins.transactionss,{  nullable:false,onDelete: 'RESTRICT',onUpdate: 'CASCADE' })
     @JoinColumn({ name:'coinId'})
     coin:coins | null;
 

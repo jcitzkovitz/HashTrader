@@ -3,14 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const users_1 = require("../entities/users");
 const typeorm_1 = require("typeorm");
 class UserRepo {
-    getAll(where) {
-        return typeorm_1.getRepository(users_1.users).find({
-            select: ["id"],
-            where: where
-        });
+    getAll(selectWhere) {
+        return typeorm_1.getRepository(users_1.users).find(selectWhere);
     }
-    getOneWithId(id) {
-        return typeorm_1.getRepository(users_1.users).findOne(id);
+    getOne(id) {
+        return typeorm_1.getRepository(users_1.users).findOne({ where: { id: id } });
     }
     checkUsername(username) {
         return typeorm_1.getRepository(users_1.users).findOne({
@@ -31,7 +28,7 @@ class UserRepo {
         return typeorm_1.getConnection().createQueryBuilder().delete().from(users_1.users).where("id = :id", { id: id }).execute();
     }
     getId(username, passwordHash) {
-        return typeorm_1.getConnection().createQueryBuilder().select("id").from(users_1.users, "users").where("users.username = :username AND users.passwordHash = :passwordHash", { username: username, passwordHash: passwordHash }).execute();
+        return typeorm_1.getRepository(users_1.users).find({ select: ["id"], where: { username: username, passwordHash: passwordHash } });
     }
 }
 exports.UserRepo = UserRepo;

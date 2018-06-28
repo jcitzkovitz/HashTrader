@@ -11,29 +11,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const token_guard_1 = require("../middlewares/token-guard");
+const WalletRepository_1 = require("../repositories/WalletRepository");
+const AddressRepository_1 = require("../repositories/AddressRepository");
+const HelperModels_1 = require("../models/HelperModels");
+const UserRepository_1 = require("../repositories/UserRepository");
 let WalletController = class WalletController {
-    getBalance(id, coinId) {
+    constructor() {
+        this.walletRepo = new WalletRepository_1.WalletRepo();
+        this.addressRepo = new AddressRepository_1.AddressRepo();
+        this.userRepo = new UserRepository_1.UserRepo();
     }
-    updateBalance(id, coinId) {
+    getBalanceForCoin(userId, coinId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let walletId = yield this.walletRepo.getWalletForUser(userId);
+                let response = yield this.addressRepo.getBalanceForCoin(walletId, coinId);
+                return new HelperModels_1.ResponseModel(true, 'The balance has been selected successfully', response);
+            }
+            catch (err) {
+                return new HelperModels_1.ResponseModel(false, 'The balance could not be selected: ' + err.message, null);
+            }
+        });
+    }
+    getWallet(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let walletId = yield this.walletRepo.getWalletForUser(yield this.userRepo.getOne(userId));
+                let response = yield this.addressRepo.getAllBalances(walletId);
+                return new HelperModels_1.ResponseModel(true, 'The wallet has been selected successfully', response);
+            }
+            catch (err) {
+                return new HelperModels_1.ResponseModel(false, 'The wallet could not be selected: ' + err.message, null);
+            }
+        });
+    }
+    updateBalanceForCoin(balanceChange) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let walletId = yield this.walletRepo.getWalletForUser(yield this.userRepo.getOne(balanceChange.userId));
+            let balance = (yield this.addressRepo.getInfoForCoin(walletId, balanceChange.coinId)).balance;
+            if (balanceChange.change == "ADD")
+                balance += balanceChange.value;
+            else if (balance - balanceChange.value >= 0)
+                balance -= balanceChange.value;
+            else
+                throw new Error("There are insufficient funds in this wallet for this transaction");
+            let response = this.addressRepo.updateBalance(walletId, balanceChange.coinId, balance);
+            return { walletId: walletId, response: response };
+        });
+    }
+    createNewAddress(userId, coinId) {
+        return __awaiter(this, void 0, void 0, function* () {
+        });
     }
 };
 __decorate([
-    routing_controllers_1.Get("/:id/:coinId"),
-    __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Param("coinId")),
+    routing_controllers_1.Get("/:userId/:coinId"),
+    __param(0, routing_controllers_1.Param("userId")), __param(1, routing_controllers_1.Param("coinId")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
-    __metadata("design:returntype", void 0)
-], WalletController.prototype, "getBalance", null);
+    __metadata("design:returntype", Promise)
+], WalletController.prototype, "getBalanceForCoin", null);
 __decorate([
-    routing_controllers_1.Put("/:id/:coinId"),
-    __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Param("coinId")),
+    routing_controllers_1.Get("/:userId"),
+    __param(0, routing_controllers_1.Param("userId")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], WalletController.prototype, "getWallet", null);
+__decorate([
+    routing_controllers_1.Get("/:userId/:coinId"),
+    __param(0, routing_controllers_1.Param("userId")), __param(1, routing_controllers_1.Param("coinId")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
-    __metadata("design:returntype", void 0)
-], WalletController.prototype, "updateBalance", null);
+    __metadata("design:returntype", Promise)
+], WalletController.prototype, "createNewAddress", null);
 WalletController = __decorate([
     routing_controllers_1.JsonController("/wallet"),
     routing_controllers_1.UseBefore(token_guard_1.verify)

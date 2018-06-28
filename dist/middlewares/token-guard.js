@@ -19,7 +19,7 @@ function verify(request, response, next) {
     jwt.verify(token, appConfig.secret, { algorithms: ['HS256'] }, (err, decoded) => __awaiter(this, void 0, void 0, function* () {
         if (err)
             return response.status(500).send({ success: false, message: 'Failed to authenticate token' });
-        let user = yield userRepo.getOneWithId(decoded.id);
+        let user = yield userRepo.getOne(decoded.id);
         if (!user)
             return response.status(404).send({ success: false, message: 'User not found' });
         next();

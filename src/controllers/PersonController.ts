@@ -6,7 +6,7 @@ import {error} from "util";
 import * as appConfig from "../common/app-config";
 import {verify} from "../middlewares/token-guard";
 import {PersonRepo} from "../repositories/PersonRepository";
-import {ResponseModel, SelectWhereModel} from "../models/HelperModels";
+import {ResponseModel} from "../models/HelperModels";
 import {people} from "../entities/people";
 
 @JsonController("/people")

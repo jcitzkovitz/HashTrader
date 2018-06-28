@@ -38,7 +38,7 @@ export class WalletController {
 
     async updateBalanceForCoin(balanceChange:BalanceChangeModel){
         let walletId = await this.walletRepo.getWalletForUser(balanceChange.userId);
-        let balance = await this.addressRepo.getInfoForCoin(walletId,balanceChange.coinId,["balance"]);
+        let balance = (await this.addressRepo.getInfoForCoin(walletId,balanceChange.coinId)).balance;
         if(balanceChange.change == "ADD")
             balance+=balanceChange.value;
         else if(balance - balanceChange.value >= 0)

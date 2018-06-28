@@ -24,6 +24,15 @@ __decorate([
     __metadata("design:type", Number)
 ], markets.prototype, "id", void 0);
 __decorate([
+    typeorm_1.Column("varchar", {
+        nullable: true,
+        unique: true,
+        length: 10,
+        name: "ticker"
+    }),
+    __metadata("design:type", String)
+], markets.prototype, "ticker", void 0);
+__decorate([
     typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.marketss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
     typeorm_1.JoinColumn({ name: 'coin1Id' }),
     __metadata("design:type", coins_1.coins)
@@ -39,6 +48,7 @@ __decorate([
 ], markets.prototype, "orderss", void 0);
 markets = __decorate([
     typeorm_1.Entity("markets", { schema: "hashtrader_exchange" }),
+    typeorm_1.Index("ticker", ["ticker",], { unique: true }),
     typeorm_1.Index("coin1Id", ["coin",]),
     typeorm_1.Index("coin2Id", ["coin2",])
 ], markets);

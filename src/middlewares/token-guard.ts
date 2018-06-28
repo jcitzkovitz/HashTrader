@@ -9,7 +9,7 @@ export function verify(request: any, response: any, next?: (err?:any) => any): a
      if(!token) return response.status(401).send({success: false, message: 'No token provided'});
      jwt.verify(token,appConfig.secret, { algorithms: ['HS256'] }, async (err:any,decoded:any) => {
          if(err) return response.status(500).send({success: false, message: 'Failed to authenticate token'});
-         let user = await userRepo.getOneWithId(decoded.id);
+         let user = await userRepo.getOne(decoded.id);
          if(!user) return response.status(404).send({success: false, message: 'User not found'});
          next();
      });

@@ -27,7 +27,7 @@ state VARCHAR(50) NOT NULL,
 zip VARCHAR(10) NOT NULL,
 streetAddress VARCHAR(50) NOT NULL,
 userId int UNIQUE,
-FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE
+FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE hashtrader_exchange.Coins(
@@ -42,10 +42,11 @@ coinBlockExplore VARCHAR(64)
 
 CREATE TABLE hashtrader_exchange.Markets(
 id int auto_increment PRIMARY KEY,
+ticker VARCHAR(10) UNIQUE,
 coin1Id int NOT NULL,
 coin2Id int NOT NULL,
-FOREIGN KEY (coin1Id) REFERENCES Coins(id),
-FOREIGN KEY (coin2Id) REFERENCES Coins(id),
+FOREIGN KEY (coin1Id) REFERENCES Coins(id) ON UPDATE CASCADE,
+FOREIGN KEY (coin2Id) REFERENCES Coins(id) ON UPDATE CASCADE,
 CHECK(Markets.coin1Id != Markets.coin2Id)
 );
 
@@ -61,10 +62,10 @@ sellCoin int NOT NULL,
 buyCoin int NOT NULL,
 marketId int NOT NULL,
 userId int NOT NULL,
-FOREIGN KEY (userId) REFERENCES Users(id), 
-FOREIGN KEY (sellCoin) REFERENCES Coins(id),
-FOREIGN KEY (buyCoin) REFERENCES Coins(id),
-FOREIGN KEY (marketId) REFERENCES Markets(id) 
+FOREIGN KEY (userId) REFERENCES Users(id) ON UPDATE CASCADE,
+FOREIGN KEY (sellCoin) REFERENCES Coins(id) ON UPDATE CASCADE,
+FOREIGN KEY (buyCoin) REFERENCES Coins(id) ON UPDATE CASCADE,
+FOREIGN KEY (marketId) REFERENCES Markets(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE hashtrader_exchange.Transactions(
@@ -77,14 +78,14 @@ dateTime DATETIME NOT NULL,
 userId int NOT NULL,
 coinId int NOT NULL,
 type ENUM ('DEPOSIT','WITHDRAWAL') NOT NULL,
-FOREIGN KEY (userId) REFERENCES Users(id),
-FOREIGN KEY (coinId) REFERENCES Coins(id)
+FOREIGN KEY (userId) REFERENCES Users(id) ON UPDATE CASCADE,
+FOREIGN KEY (coinId) REFERENCES Coins(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE hashtrader_exchange.Wallets(
 id int auto_increment PRIMARY KEY,
 userId int NOT NULL UNIQUE,
-FOREIGN KEY (userId) REFERENCES Users(id)
+FOREIGN KEY (userId) REFERENCES Users(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE hashtrader_exchange.Addresses(
@@ -96,7 +97,7 @@ CHECK (balance > 0),
 coinId int NOT NULL,
 walletId int NOT NULL,
 type ENUM ('REGULAR','STAKE') DEFAULT 'REGULAR',
-FOREIGN KEY (coinId) REFERENCES Coins(id),
-FOREIGN KEY (walletId) REFERENCES Wallets(id)
+FOREIGN KEY (coinId) REFERENCES Coins(id) ON UPDATE CASCADE,
+FOREIGN KEY (walletId) REFERENCES Wallets(id) ON UPDATE CASCADE
 );
 
