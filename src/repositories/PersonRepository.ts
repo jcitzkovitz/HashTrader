@@ -2,14 +2,12 @@ import {people} from "../entities/people";
 import {getConnection, getRepository} from "typeorm";
 
 export class PersonRepo{
-    getAll(select?:any, where?:any){
-        return getRepository(people).find({
-            select: select,
-            where: where});
+    getAll(selectWhere:any){
+        return getRepository(people).find(selectWhere);
     }
 
     getOne(userId:number){
-        return getRepository(people).find({where:{userId:userId}});
+        return getRepository(people).createQueryBuilder("person").innerJoin("person.user","user").where("user.id = :userId",{userId:userId}).getOne();
     }
 
     savePerson(person: people){
@@ -17,6 +15,6 @@ export class PersonRepo{
     }
 
     updatePerson(userId:number, person: people){
-        return getConnection().createQueryBuilder().update(people).set(person).where("userId = :userId", {userId: userId}).execute();
+        return getRepository(people).createQueryBuilder("person").innerJoin("person.user","user").where("user.id = :userId",{userId:userId}).update().set(person);
     }
 }

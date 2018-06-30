@@ -63,12 +63,12 @@ __decorate([
     __metadata("design:type", Date)
 ], transactions.prototype, "dateTime", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => users_1.users, users => users.transactionss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => users_1.users, users => users.transactionss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", users_1.users)
 ], transactions.prototype, "user", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.transactionss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.transactionss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'coinId' }),
     __metadata("design:type", coins_1.coins)
 ], transactions.prototype, "coin", void 0);

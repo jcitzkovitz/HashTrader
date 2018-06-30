@@ -58,7 +58,7 @@ export class TransactionController{
         try{
             //Authenticate user
             let auth: AuthenticationModel = {username:body.username,password:body.password,googleAuth:body.googleAuth};
-            let user = await this.authController.authenticateUser(auth,[]);
+            let user = await this.authController.authenticateUser(auth);
 
             //Check if the withdrawal amount is below the users limit
             if(body.value > user.withdrawalLimit) throw new UnauthorizedError("The user cannot withdraw an amount greater than their stated limit");
@@ -68,7 +68,7 @@ export class TransactionController{
             let updatedBalanceResponse = await this.walletController.updateBalanceForCoin(balanceChange);
 
             //Send money to selected address
-            let fromAddressHash = await this.addressRepo.getInfoForCoin(updatedBalanceResponse.walletId,body.coinId);
+            let fromAddressHash = await this.addressRepo.getAddressForCoin(updatedBalanceResponse.walletId,body.coinId);
             //****GET ADDR FROM OTHER DB****
             //****SEND MONEY TO GIVEN ADDR****
             let txid = '';
@@ -104,7 +104,7 @@ export class TransactionController{
             let updatedBalanceResponse = await this.walletController.updateBalanceForCoin(balanceChange);
 
             //Get money from selected address
-            let toAddressHash = (await this.addressRepo.getInfoForCoin(updatedBalanceResponse.walletId,body.coinId)).addressHash;
+            let toAddressHash = await this.addressRepo.getAddressForCoin(updatedBalanceResponse.walletId,body.coinId);
             //****GET ADDR FROM OTHER DB****
             //****SEND MONEY TO DB ADDR****
             let txid = '';

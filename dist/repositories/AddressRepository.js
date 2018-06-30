@@ -3,17 +3,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const addresses_1 = require("../entities/addresses");
 class AddressRepo {
-    getInfoForCoin(walletId, coinId) {
-        return typeorm_1.getRepository(addresses_1.addresses).find({ where: { walletId: walletId, coinId: coinId } });
+    getAddressForCoin(walletId, coinId) {
+        return typeorm_1.getRepository(addresses_1.addresses).createQueryBuilder("address").select("addressHash")
+            .innerJoin("address.wallet", "wallet").innerJoin("address.coin", "coin")
+            .where("wallet.id = :walletId AND coin.id = :coinId", { walletId: walletId, coinId: coinId }).getRawOne();
     }
     getBalanceForCoin(walletId, coinId) {
-        return typeorm_1.getRepository(addresses_1.addresses).find({ select: ["balance", "addressHash"], where: { walletId: walletId, coinId: coinId } });
+        return typeorm_1.getRepository(addresses_1.addresses).createQueryBuilder("address").select("balance")
+            .innerJoin("address.wallet", "wallet").innerJoin("address.coin", "coin")
+            .where("wallet.id = :walletId AND coin.id = :coinId", { walletId: walletId, coinId: coinId }).getRawOne();
     }
     getAllBalances(walletId) {
-        return typeorm_1.getRepository(addresses_1.addresses).find({ select: ["coin", "balance"], where: { walletId: walletId } });
+        return typeorm_1.getRepository(addresses_1.addresses).createQueryBuilder("address").select(["coin.ticker", "coin.name", "wallet.balance"])
+            .innerJoin("address.wallet", "wallet").innerJoin("address.coin", "coin")
+            .where("wallet.id = :walletId", { walletId: walletId }).getRawMany();
     }
     updateBalance(walletId, coinId, newBalance) {
-        return typeorm_1.getConnection().createQueryBuilder().update(addresses_1.addresses).set({ balance: newBalance }).where({ walletId: walletId, coinId: coinId });
+        return typeorm_1.getRepository(addresses_1.addresses).createQueryBuilder("address")
+            .innerJoin("address.wallet", "wallet").innerJoin("address.coin", "coin")
+            .where("wallet.id = :walletId AND coin.id = :coinId", { walletId: walletId, coinId: coinId })
+            .update().set({ balance: newBalance }).execute();
     }
 }
 exports.AddressRepo = AddressRepo;

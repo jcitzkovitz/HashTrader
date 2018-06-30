@@ -30,10 +30,10 @@ let MarketController = class MarketController {
         this.marketRepo = new MarketRepository_1.MarketRepo();
         this.coinRepo = new CoinRepository_1.CoinRepo();
     }
-    getAll() {
+    getAllMarkets() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.marketRepo.getAll();
+                let response = yield this.marketRepo.getAllMarkets();
                 return new HelperModels_1.ResponseModel(true, 'All markets have been selected successfully', response);
             }
             catch (err) {
@@ -41,14 +41,25 @@ let MarketController = class MarketController {
             }
         });
     }
-    getAllFor(coinId) {
+    getAllMarketsFor(coinId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.marketRepo.getAllFor(coinId);
+                let response = yield this.marketRepo.getAllMarketsFor(coinId);
                 return new HelperModels_1.ResponseModel(true, 'The markets for this coin has been selected successfully', response);
             }
             catch (err) {
                 return new HelperModels_1.ResponseModel(false, 'The markets could not be selected: ' + err.message, null);
+            }
+        });
+    }
+    getMarket(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = yield this.marketRepo.getMarket(id);
+                return new HelperModels_1.ResponseModel(true, 'The market has been selected successfully', response);
+            }
+            catch (err) {
+                return new HelperModels_1.ResponseModel(false, 'The market could not be selected: ' + err.message, null);
             }
         });
     }
@@ -59,10 +70,9 @@ let MarketController = class MarketController {
                 //Check that coin1 is a main market coi
                 let coin1 = yield this.coinRepo.getOne(id1);
                 let coin2 = yield this.coinRepo.getOne(id2);
-                if (coin1.marketType != "MAIN")
-                    throw new Error("Coin 1 must be a main market coin");
+                // if(coin1.marketType != "MAIN") throw new Error("Coin 1 must be a main market coin");
                 let ticker = coin1.ticker + "_" + coin2.ticker;
-                let response = yield this.marketRepo.create({ id: 0, ticker: ticker, coin: coin1, coin2: coin2, orderss: [] });
+                let response = yield this.marketRepo.createMarket({ id: null, ticker: ticker, coin: coin1, coin2: coin2, orderss: null });
                 return new HelperModels_1.ResponseModel(true, 'The market has been created successfully', response);
             }
             catch (err) {
@@ -74,8 +84,8 @@ let MarketController = class MarketController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 //REQUIRES ADMIN AUTHENTICATION
-                let response = yield this.marketRepo.delete(id);
-                return new HelperModels_1.ResponseModel(true, 'The market has been deleted successfully', response);
+                yield this.marketRepo.deleteMarket(id);
+                return new HelperModels_1.ResponseModel(true, 'The market has been deleted successfully', null);
             }
             catch (err) {
                 return new HelperModels_1.ResponseModel(false, 'The market could not be created', null);
@@ -88,14 +98,21 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], MarketController.prototype, "getAll", null);
+], MarketController.prototype, "getAllMarkets", null);
 __decorate([
-    routing_controllers_1.Get("/:coinId"),
+    routing_controllers_1.Get("/forCoin/:coinId"),
     __param(0, routing_controllers_1.Param("coinId")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], MarketController.prototype, "getAllFor", null);
+], MarketController.prototype, "getAllMarketsFor", null);
+__decorate([
+    routing_controllers_1.Get("/:id"),
+    __param(0, routing_controllers_1.Param("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], MarketController.prototype, "getMarket", null);
 __decorate([
     routing_controllers_1.Post("/:id1/:id2"),
     __param(0, routing_controllers_1.Param("id1")), __param(1, routing_controllers_1.Param("id2")),

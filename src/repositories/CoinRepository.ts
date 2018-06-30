@@ -8,7 +8,7 @@ export class CoinRepo{
     }
 
     deleteCoin(id:number){
-        return getConnection().createQueryBuilder().delete().from(coins).where("id = :id",{id:id});
+        getRepository(coins).createQueryBuilder().delete().where("id = :id",{id:id}).execute();
     }
     getOne(id:number){
         return getRepository(coins).findOne({where:{id:id}});
@@ -16,7 +16,7 @@ export class CoinRepo{
     getAllCoinInfo(where?:any){
         return getRepository(coins).find({select:["ticker","name","stakeable","coinWebsite","coinBlockExplore"],where:where});
     }
-    updateCoin(coin:coins){
-        return getConnection().createQueryBuilder().update(coins).set(coin).where("id = :id",{id:coin.id});
+    updateCoin(id:number,setValues:any){
+        getRepository(coins).createQueryBuilder().update().set(setValues).where("id = :id",{id:id}).execute();
     }
 }

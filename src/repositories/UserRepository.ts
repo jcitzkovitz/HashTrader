@@ -24,15 +24,15 @@ export class UserRepo{
     }
 
     updateUser(id:number, user: users){
-        return getConnection().createQueryBuilder().update(users).set(user).where("id = :id", {id: id}).execute();
+        return getRepository(users).createQueryBuilder().update().set(user).where("id = :id", {id: id}).execute();
     }
 
     updatePassword(id:number, data: any){
-        return getConnection().createQueryBuilder().update(users).set({passwordHash: data.passwordHash, salt: data.salt}).where("id = :id", {id: id}).execute();
+        return getRepository(users).createQueryBuilder().update().set({passwordHash: data.passwordHash, salt: data.salt}).where("id = :id", {id: id}).execute();
     }
 
     deleteUser(id: number){
-        return getConnection().createQueryBuilder().delete().from(users).where("id = :id", {id: id}).execute();
+        return getRepository(users).createQueryBuilder().delete().where("id = :id", {id: id}).execute();
     }
 
     getId(username: string,passwordHash: string){

@@ -38,20 +38,20 @@ export class AuthenticationController {
     @Post("/login")
      async login(@Body() body: AuthenticationModel){
         try{
-            let userId = await this.authenticateUser(body,["id"]);
+            let userId = (await this.authenticateUser(body)).id;
             let jsonToken = this.jwt.sign({id: userId},appConfig.secret,{
                 expiresIn: '8h', algorithm: 'HS256'
             });
 
-            return new ResponseModel(true,'Login succesful',{id: userId, token: jsonToken});
+            return new ResponseModel(true,'Login succesful',{user: userId, token: jsonToken});
         } catch (err){
-            return new ResponseModel(false,"Login failed: " + err.message,null);
+            return new ResponseModel(false,"Login failed: " + err,null);
         }
     }
 
-    async authenticateUser(userInfo:AuthenticationModel,returnInfo:string[]){
+    async authenticateUser(userInfo:AuthenticationModel){
         //Get the user with the correct username
-        let user = await this.userRepo.getAll({select:returnInfo,where:{username: userInfo.username}});
+        let user = await this.userRepo.getAll({where:{username: userInfo.username}});
         if(user.length != 1)
             throw new NotFoundError('The user was not found in the database');
         //Decrypt the sent password
@@ -66,6 +66,8 @@ export class AuthenticationController {
             if(this.auth.verifyToken(userInfo.googleAuth,googleTok) != 0)
                 throw new UnauthorizedError('The Google Authenticator was not validated');
         }
+        user[0].passwordHash = null;
+        user[0].salt = null;
         return user[0];
     }
 

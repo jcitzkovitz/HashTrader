@@ -72,22 +72,22 @@ __decorate([
     __metadata("design:type", String)
 ], orders.prototype, "type", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'sellCoin' }),
     __metadata("design:type", coins_1.coins)
 ], orders.prototype, "sellCoin", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.orderss2, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.orderss2, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'buyCoin' }),
     __metadata("design:type", coins_1.coins)
 ], orders.prototype, "buyCoin", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => markets_1.markets, markets => markets.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => markets_1.markets, markets => markets.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'marketId' }),
     __metadata("design:type", markets_1.markets)
 ], orders.prototype, "market", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => users_1.users, users => users.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => users_1.users, users => users.orderss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", users_1.users)
 ], orders.prototype, "user", void 0);

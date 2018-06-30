@@ -22,6 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const token_guard_1 = require("../middlewares/token-guard");
+const coins_1 = require("../entities/coins");
 const users_1 = require("../entities/users");
 const CoinRepository_1 = require("../repositories/CoinRepository");
 const HelperModels_1 = require("../models/HelperModels");
@@ -33,8 +34,7 @@ let CoinController = class CoinController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 //REQUIRES ADMIN AUTHENTICATION
-                let coin = body.coin;
-                let response = yield this.coinRepo.listNewCoin(coin);
+                let response = yield this.coinRepo.listNewCoin(body);
                 return new HelperModels_1.ResponseModel(true, 'The coin was added successfully', response);
             }
             catch (err) {
@@ -42,13 +42,13 @@ let CoinController = class CoinController {
             }
         });
     }
-    updateCoin(body) {
+    updateCoin(id, body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("UPDATE");
                 //REQUIRES ADMIN AUTHENTICATION
-                let coin = body.coin;
-                let response = yield this.coinRepo.updateCoin(coin);
-                return new HelperModels_1.ResponseModel(true, 'The coin was added successfully', response);
+                yield this.coinRepo.updateCoin(id, body);
+                return new HelperModels_1.ResponseModel(true, 'The coin was updated successfully', null);
             }
             catch (err) {
                 return new HelperModels_1.ResponseModel(false, 'The coin could not be added: ' + err.message, null);
@@ -59,8 +59,8 @@ let CoinController = class CoinController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 //REQUIRES ADMIN AUTHENTICATION
-                let response = yield this.coinRepo.deleteCoin(id);
-                return new HelperModels_1.ResponseModel(true, 'The coin was succesfully deleted', response);
+                yield this.coinRepo.deleteCoin(id);
+                return new HelperModels_1.ResponseModel(true, 'The coin was succesfully deleted', null);
             }
             catch (err) {
                 return new HelperModels_1.ResponseModel(false, 'The coin could not be deleted: ' + err.message, null);
@@ -94,14 +94,14 @@ __decorate([
     routing_controllers_1.Post("/"),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [coins_1.coins]),
     __metadata("design:returntype", Promise)
 ], CoinController.prototype, "listNewCoin", null);
 __decorate([
-    routing_controllers_1.Post("/update"),
-    __param(0, routing_controllers_1.Body()),
+    routing_controllers_1.Put("/:id/update"),
+    __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], CoinController.prototype, "updateCoin", null);
 __decorate([

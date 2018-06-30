@@ -49,12 +49,12 @@ __decorate([
     __metadata("design:type", Number)
 ], addresses.prototype, "balance", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.addressess, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.addressess, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'coinId' }),
     __metadata("design:type", coins_1.coins)
 ], addresses.prototype, "coin", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => wallets_1.wallets, wallets => wallets.addressess, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => wallets_1.wallets, wallets => wallets.addressess, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'walletId' }),
     __metadata("design:type", wallets_1.wallets)
 ], addresses.prototype, "wallet", void 0);

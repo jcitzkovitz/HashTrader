@@ -77,7 +77,7 @@ let TransactionController = class TransactionController {
             try {
                 //Authenticate user
                 let auth = { username: body.username, password: body.password, googleAuth: body.googleAuth };
-                let user = yield this.authController.authenticateUser(auth, []);
+                let user = yield this.authController.authenticateUser(auth);
                 //Check if the withdrawal amount is below the users limit
                 if (body.value > user.withdrawalLimit)
                     throw new routing_controllers_1.UnauthorizedError("The user cannot withdraw an amount greater than their stated limit");
@@ -85,7 +85,7 @@ let TransactionController = class TransactionController {
                 let balanceChange = { userId: user.id, coinId: body.coinId, change: "SUB", value: body.value };
                 let updatedBalanceResponse = yield this.walletController.updateBalanceForCoin(balanceChange);
                 //Send money to selected address
-                let fromAddressHash = yield this.addressRepo.getInfoForCoin(updatedBalanceResponse.walletId, body.coinId);
+                let fromAddressHash = yield this.addressRepo.getAddressForCoin(updatedBalanceResponse.walletId, body.coinId);
                 //****GET ADDR FROM OTHER DB****
                 //****SEND MONEY TO GIVEN ADDR****
                 let txid = '';
@@ -117,7 +117,7 @@ let TransactionController = class TransactionController {
                 let balanceChange = { userId: user.id, coinId: body.coinId, change: "SUB", value: body.value };
                 let updatedBalanceResponse = yield this.walletController.updateBalanceForCoin(balanceChange);
                 //Get money from selected address
-                let toAddressHash = (yield this.addressRepo.getInfoForCoin(updatedBalanceResponse.walletId, body.coinId)).addressHash;
+                let toAddressHash = yield this.addressRepo.getAddressForCoin(updatedBalanceResponse.walletId, body.coinId);
                 //****GET ADDR FROM OTHER DB****
                 //****SEND MONEY TO DB ADDR****
                 let txid = '';

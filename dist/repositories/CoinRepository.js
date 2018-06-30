@@ -7,7 +7,7 @@ class CoinRepo {
         return typeorm_1.getRepository(coins_1.coins).save(coin);
     }
     deleteCoin(id) {
-        return typeorm_1.getConnection().createQueryBuilder().delete().from(coins_1.coins).where("id = :id", { id: id });
+        typeorm_1.getRepository(coins_1.coins).createQueryBuilder().delete().where("id = :id", { id: id }).execute();
     }
     getOne(id) {
         return typeorm_1.getRepository(coins_1.coins).findOne({ where: { id: id } });
@@ -15,8 +15,8 @@ class CoinRepo {
     getAllCoinInfo(where) {
         return typeorm_1.getRepository(coins_1.coins).find({ select: ["ticker", "name", "stakeable", "coinWebsite", "coinBlockExplore"], where: where });
     }
-    updateCoin(coin) {
-        return typeorm_1.getConnection().createQueryBuilder().update(coins_1.coins).set(coin).where("id = :id", { id: coin.id });
+    updateCoin(id, setValues) {
+        typeorm_1.getRepository(coins_1.coins).createQueryBuilder().update().set(setValues).where("id = :id", { id: id }).execute();
     }
 }
 exports.CoinRepo = CoinRepo;

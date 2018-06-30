@@ -35,13 +35,13 @@ export class coins {
     name:string;
         
 
-    @Column("enum",{ 
+    @Column("tinyint",{ 
         nullable:true,
-        default:"NO",
-        enum:["YES","NO"],
+        width:1,
+        default:"0",
         name:"stakeable"
         })
-    stakeable:string | null;
+    stakeable:boolean | null;
         
 
     @Column("enum",{ 

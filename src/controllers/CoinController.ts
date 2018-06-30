@@ -1,6 +1,6 @@
 
 
-import {Body, Delete, Get, JsonController, Param, Post, UseBefore} from "routing-controllers";
+import {Body, Delete, Get, JsonController, Param, Post, Put, UseBefore} from "routing-controllers";
 import {verify} from "../middlewares/token-guard";
 import {coins} from "../entities/coins";
 import {users} from "../entities/users";
@@ -14,24 +14,23 @@ export class CoinController{
     coinRepo: CoinRepo = new CoinRepo();
 
     @Post("/")
-    async listNewCoin(@Body() body:any){
+    async listNewCoin(@Body() body:coins){
         try{
             //REQUIRES ADMIN AUTHENTICATION
-            let coin:coins = body.coin;
-            let response = await this.coinRepo.listNewCoin(coin);
+            let response = await this.coinRepo.listNewCoin(body);
             return new ResponseModel(true,'The coin was added successfully',response);
         }catch(err){
             return new ResponseModel(false,'The coin could not be added: '+err.message,null);
         }
     }
 
-    @Post("/update")
-    async updateCoin(@Body() body:any){
+    @Put("/:id/update")
+    async updateCoin(@Param("id") id:number,@Body() body:any){
         try{
+            console.log("UPDATE");
             //REQUIRES ADMIN AUTHENTICATION
-            let coin:coins = body.coin;
-            let response = await this.coinRepo.updateCoin(coin);
-            return new ResponseModel(true,'The coin was added successfully',response);
+            await this.coinRepo.updateCoin(id,body);
+            return new ResponseModel(true,'The coin was updated successfully',null);
         }catch(err){
             return new ResponseModel(false,'The coin could not be added: '+err.message,null);
         }
@@ -41,8 +40,8 @@ export class CoinController{
     async deleteCoin(@Param("id") id:number, @Body() user:users){
         try{
             //REQUIRES ADMIN AUTHENTICATION
-            let response = await this.coinRepo.deleteCoin(id);
-            return new ResponseModel(true,'The coin was succesfully deleted',response);
+            await this.coinRepo.deleteCoin(id);
+            return new ResponseModel(true,'The coin was succesfully deleted',null);
         }catch(err){
             return new ResponseModel(false,'The coin could not be deleted: '+err.message,null);
         }

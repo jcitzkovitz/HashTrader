@@ -55,21 +55,21 @@ let AuthenticationController = class AuthenticationController {
     login(body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let userId = yield this.authenticateUser(body, ["id"]);
+                let userId = (yield this.authenticateUser(body)).id;
                 let jsonToken = this.jwt.sign({ id: userId }, appConfig.secret, {
                     expiresIn: '8h', algorithm: 'HS256'
                 });
-                return new HelperModels_1.ResponseModel(true, 'Login succesful', { id: userId, token: jsonToken });
+                return new HelperModels_1.ResponseModel(true, 'Login succesful', { user: userId, token: jsonToken });
             }
             catch (err) {
-                return new HelperModels_1.ResponseModel(false, "Login failed: " + err.message, null);
+                return new HelperModels_1.ResponseModel(false, "Login failed: " + err, null);
             }
         });
     }
-    authenticateUser(userInfo, returnInfo) {
+    authenticateUser(userInfo) {
         return __awaiter(this, void 0, void 0, function* () {
             //Get the user with the correct username
-            let user = yield this.userRepo.getAll({ select: returnInfo, where: { username: userInfo.username } });
+            let user = yield this.userRepo.getAll({ where: { username: userInfo.username } });
             if (user.length != 1)
                 throw new routing_controllers_1.NotFoundError('The user was not found in the database');
             //Decrypt the sent password
@@ -82,6 +82,8 @@ let AuthenticationController = class AuthenticationController {
                 if (this.auth.verifyToken(userInfo.googleAuth, googleTok) != 0)
                     throw new routing_controllers_1.UnauthorizedError('The Google Authenticator was not validated');
             }
+            user[0].passwordHash = null;
+            user[0].salt = null;
             return user[0];
         });
     }

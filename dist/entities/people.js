@@ -78,7 +78,7 @@ __decorate([
     __metadata("design:type", String)
 ], people.prototype, "streetAddress", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => users_1.users, users => users.people, { onDelete: 'CASCADE', onUpdate: 'RESTRICT' }),
+    typeorm_1.OneToOne(type => users_1.users, users => users.people, { onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", users_1.users)
 ], people.prototype, "user", void 0);

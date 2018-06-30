@@ -11,7 +11,7 @@ import {people} from "../entities/people";
 
 @JsonController("/people")
 @UseBefore(verify)
-export class UserController {
+export class PersonController {
 
     personRepo: PersonRepo = new PersonRepo();
 

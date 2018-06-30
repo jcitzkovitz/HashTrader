@@ -25,17 +25,15 @@ const token_guard_1 = require("../middlewares/token-guard");
 const WalletRepository_1 = require("../repositories/WalletRepository");
 const AddressRepository_1 = require("../repositories/AddressRepository");
 const HelperModels_1 = require("../models/HelperModels");
-const UserRepository_1 = require("../repositories/UserRepository");
 let WalletController = class WalletController {
     constructor() {
         this.walletRepo = new WalletRepository_1.WalletRepo();
         this.addressRepo = new AddressRepository_1.AddressRepo();
-        this.userRepo = new UserRepository_1.UserRepo();
     }
     getBalanceForCoin(userId, coinId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let walletId = yield this.walletRepo.getWalletForUser(userId);
+                let walletId = (yield this.walletRepo.getWalletForUser(userId)).id;
                 let response = yield this.addressRepo.getBalanceForCoin(walletId, coinId);
                 return new HelperModels_1.ResponseModel(true, 'The balance has been selected successfully', response);
             }
@@ -47,7 +45,7 @@ let WalletController = class WalletController {
     getWallet(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let walletId = yield this.walletRepo.getWalletForUser(yield this.userRepo.getOne(userId));
+                let walletId = (yield this.walletRepo.getWalletForUser(userId)).id;
                 let response = yield this.addressRepo.getAllBalances(walletId);
                 return new HelperModels_1.ResponseModel(true, 'The wallet has been selected successfully', response);
             }
@@ -58,8 +56,8 @@ let WalletController = class WalletController {
     }
     updateBalanceForCoin(balanceChange) {
         return __awaiter(this, void 0, void 0, function* () {
-            let walletId = yield this.walletRepo.getWalletForUser(yield this.userRepo.getOne(balanceChange.userId));
-            let balance = (yield this.addressRepo.getInfoForCoin(walletId, balanceChange.coinId)).balance;
+            let walletId = (yield this.walletRepo.getWalletForUser(balanceChange.userId)).id;
+            let balance = yield this.addressRepo.getBalanceForCoin(walletId, balanceChange.coinId);
             if (balanceChange.change == "ADD")
                 balance += balanceChange.value;
             else if (balance - balanceChange.value >= 0)

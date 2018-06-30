@@ -33,12 +33,12 @@ __decorate([
     __metadata("design:type", String)
 ], markets.prototype, "ticker", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.marketss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.marketss, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'coin1Id' }),
     __metadata("design:type", coins_1.coins)
 ], markets.prototype, "coin", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.marketss2, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.ManyToOne(type => coins_1.coins, coins => coins.marketss2, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'coin2Id' }),
     __metadata("design:type", coins_1.coins)
 ], markets.prototype, "coin2", void 0);

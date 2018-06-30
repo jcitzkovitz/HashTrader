@@ -4,8 +4,8 @@ import {users} from "../entities/users";
 
 export class WalletRepo{
 
-    getWalletForUser(user: users){
-      return  getRepository(wallets).findOne({user: id});
+    getWalletForUser(userId: number){
+      return  getRepository(wallets).createQueryBuilder("wallet").innerJoin("wallet.user","user").where("user.id = :userId",{userId:userId}).getOne();
     }
 
     getAll(){

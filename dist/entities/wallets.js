@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", Number)
 ], wallets.prototype, "id", void 0);
 __decorate([
-    typeorm_1.OneToOne(type => users_1.users, users => users.wallets, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'RESTRICT' }),
+    typeorm_1.OneToOne(type => users_1.users, users => users.wallets, { nullable: false, onDelete: 'RESTRICT', onUpdate: 'CASCADE' }),
     typeorm_1.JoinColumn({ name: 'userId' }),
     __metadata("design:type", users_1.users)
 ], wallets.prototype, "user", void 0);

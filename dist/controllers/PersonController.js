@@ -25,7 +25,7 @@ const token_guard_1 = require("../middlewares/token-guard");
 const PersonRepository_1 = require("../repositories/PersonRepository");
 const HelperModels_1 = require("../models/HelperModels");
 const people_1 = require("../entities/people");
-let UserController = class UserController {
+let PersonController = class PersonController {
     constructor() {
         this.personRepo = new PersonRepository_1.PersonRepo();
     }
@@ -69,24 +69,24 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "getPerson", null);
+], PersonController.prototype, "getPerson", null);
 __decorate([
     routing_controllers_1.Post("/"),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [people_1.people]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "savePerson", null);
+], PersonController.prototype, "savePerson", null);
 __decorate([
     routing_controllers_1.Put("/:id"),
     __param(0, routing_controllers_1.Param("id")), __param(1, routing_controllers_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, people_1.people]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "updatePerson", null);
-UserController = __decorate([
+], PersonController.prototype, "updatePerson", null);
+PersonController = __decorate([
     routing_controllers_1.JsonController("/people"),
     routing_controllers_1.UseBefore(token_guard_1.verify)
-], UserController);
-exports.UserController = UserController;
+], PersonController);
+exports.PersonController = PersonController;
 //# sourceMappingURL=PersonController.js.map

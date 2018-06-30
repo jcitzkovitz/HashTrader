@@ -25,14 +25,20 @@ const token_guard_1 = require("../middlewares/token-guard");
 const OrderRepository_1 = require("../repositories/OrderRepository");
 const HelperModels_1 = require("../models/HelperModels");
 const orders_1 = require("../entities/orders");
+const CoinRepository_1 = require("../repositories/CoinRepository");
+const MarketRepository_1 = require("../repositories/MarketRepository");
+const UserRepository_1 = require("../repositories/UserRepository");
 let OrderController = class OrderController {
     constructor() {
         this.orderRepo = new OrderRepository_1.OrderRepo();
+        this.coinRepo = new CoinRepository_1.CoinRepo();
+        this.marketRepo = new MarketRepository_1.MarketRepo();
+        this.userRepo = new UserRepository_1.UserRepo();
     }
-    getAllForUser(id) {
+    getAllForUser(userId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.orderRepo.getAll({ where: { id: id } });
+                let response = yield this.orderRepo.getAllOrdersFor(userId);
                 return new HelperModels_1.ResponseModel(true, 'The orders for this user have been selected successfully', response);
             }
             catch (err) {
@@ -43,7 +49,7 @@ let OrderController = class OrderController {
     getSellOrders(marketId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.orderRepo.getAll({ where: { type: "SELL", marketId: marketId, status: "NOT FILLED" } });
+                let response = yield this.orderRepo.getAllOrders({ select: this.orderRepo.pertinentInfo, where: { type: "SELL", marketId: marketId, status: "NOT FILLED" }, order: { price: "ASC", dateTime: "ASC" } });
                 return new HelperModels_1.ResponseModel(true, 'The sell orders for this market have been selected successfully', response);
             }
             catch (err) {
@@ -54,7 +60,7 @@ let OrderController = class OrderController {
     getBuyOrders(marketId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.orderRepo.getAll({ where: { type: "BUY", marketId: marketId, status: "NOT FILLED" } });
+                let response = yield this.orderRepo.getAllOrders({ select: this.orderRepo.pertinentInfo, where: { type: "BUY", marketId: marketId, status: "NOT FILLED" }, order: { price: "DESC", dateTime: "ASC" } });
                 return new HelperModels_1.ResponseModel(true, 'The buy orders for this market have been selected successfully', response);
             }
             catch (err) {
@@ -65,7 +71,20 @@ let OrderController = class OrderController {
     createOrder(order) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.orderRepo.createOrder(order);
+                let finalOrder = new orders_1.orders();
+                finalOrder.dateTime = new Date();
+                finalOrder.status = "NOT FILLED";
+                finalOrder.sellCoin = yield this.coinRepo.getOne(order.sellCoinId);
+                finalOrder.buyCoin = yield this.coinRepo.getOne(order.buyCoinId);
+                finalOrder.market = yield this.marketRepo.getMarket(order.marketId);
+                finalOrder.user = yield this.userRepo.getOne(order.userId);
+                finalOrder.price = order.price;
+                finalOrder.amount = order.amount;
+                finalOrder.total = order.total;
+                finalOrder.type = order.type;
+                let response = yield this.orderRepo.createOrder(finalOrder);
+                response.user = null;
+                this.matchOrders(order.marketId);
                 return new HelperModels_1.ResponseModel(true, 'The order has been created successfully', response);
             }
             catch (err) {
@@ -84,11 +103,78 @@ let OrderController = class OrderController {
             }
         });
     }
+    // @Put("/update")
+    // async updateOrder(w:any){
+    //     try{
+    //         let response = await this.orderRepo.updateOrder({status:"FILLED",amount:0,id:1});
+    //         return new ResponseModel(true,'The order has been updated successfully',response);
+    //     }catch(err){
+    //         return new ResponseModel(false,'The order could not be cancelled: '+err.message,null);
+    //     }
+    // }
+    matchOrders(marketId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let matchedOrders = yield this.orderRepo.matchOrders(marketId);
+                let sellOrder;
+                let buyOrder;
+                console.log("entering while");
+                console.log(matchedOrders);
+                while (matchedOrders.length > 0) {
+                    console.log("TOP");
+                    //Set update sell order criterion
+                    sellOrder = {
+                        id: matchedOrders[0].sId,
+                        status: "NOT FILLED",
+                        amount: 0
+                    };
+                    //Set update buy order criterion
+                    buyOrder = {
+                        id: matchedOrders[0].bId,
+                        status: "NOT FILLED",
+                        amount: 0
+                    };
+                    //Set the transferred amounts
+                    if (matchedOrders[0].sAmount > matchedOrders[0].bAmount) {
+                        sellOrder.amount = matchedOrders[0].sAmount - matchedOrders[0].bAmount;
+                        buyOrder.amount = 0;
+                        buyOrder.status = "FILLED";
+                        console.log("MORE SELL THAN BUY: sell = " + sellOrder.amount + ", buy = " + buyOrder.amount);
+                    }
+                    else if (matchedOrders[0].sAmount < matchedOrders[0].bAmount) {
+                        sellOrder.amount = 0;
+                        buyOrder.amount = matchedOrders[0].bAmount - matchedOrders[0].sAmount;
+                        sellOrder.status = "FILLED";
+                        console.log("MORE BUY THAN SELL: sell = " + sellOrder.amount + ", buy = " + buyOrder.amount);
+                    }
+                    else {
+                        sellOrder.amount = 0;
+                        buyOrder.amount = 0;
+                        sellOrder.status = "FILLED";
+                        buyOrder.status = "FILLED";
+                        console.log("EQUAL: sell = " + sellOrder.amount + ", buy = " + buyOrder.amount);
+                    }
+                    //Update the orders in the system
+                    yield this.updateOrder(sellOrder);
+                    yield this.updateOrder(buyOrder);
+                    //Update the user balances
+                    //Get the next match
+                    matchedOrders = yield this.orderRepo.matchOrders(marketId);
+                    console.log(matchedOrders);
+                }
+                return;
+            }
+            catch (err) {
+                console.log(err);
+                return new HelperModels_1.ResponseModel(false, 'Could not get matched orders: ' + err.message, null);
+            }
+        });
+    }
     updateOrder(body) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = yield this.orderRepo.updateOrder(body);
-                return new HelperModels_1.ResponseModel(true, 'The order has been updated successfully', response);
+                yield this.orderRepo.updateOrder(body);
+                return new HelperModels_1.ResponseModel(true, 'The order has been updated successfully', null);
             }
             catch (err) {
                 return new HelperModels_1.ResponseModel(false, 'The order could not be updated: ' + err.message, null);
@@ -97,8 +183,8 @@ let OrderController = class OrderController {
     }
 };
 __decorate([
-    routing_controllers_1.Get("/:id"),
-    __param(0, routing_controllers_1.Param("id")),
+    routing_controllers_1.Get("/:userId"),
+    __param(0, routing_controllers_1.Param("userId")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
@@ -121,7 +207,7 @@ __decorate([
     routing_controllers_1.Post("/"),
     __param(0, routing_controllers_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [orders_1.orders]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "createOrder", null);
 __decorate([
@@ -131,14 +217,8 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "cancelOrder", null);
-__decorate([
-    __param(0, routing_controllers_1.Body()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], OrderController.prototype, "updateOrder", null);
 OrderController = __decorate([
-    routing_controllers_1.JsonController("order"),
+    routing_controllers_1.JsonController("/order"),
     routing_controllers_1.UseBefore(token_guard_1.verify)
 ], OrderController);
 exports.OrderController = OrderController;

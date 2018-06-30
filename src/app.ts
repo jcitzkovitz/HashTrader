@@ -11,6 +11,12 @@ import * as jwt from 'jsonwebtoken';
  */
 import {UserController} from "./controllers/UserController";
 import {AuthenticationController} from "./controllers/AuthenticationController";
+import {CoinController} from "./controllers/CoinController";
+import {MarketController} from "./controllers/MarketController";
+import {OrderController} from "./controllers/OrderController";
+import {PersonController} from "./controllers/PersonController";
+import {TransactionController} from "./controllers/TransactionController";
+import {WalletController} from "./controllers/WalletController";
 
 /**
  * Create Express server.
@@ -28,7 +34,8 @@ app.set('secret',appConfig.secret);
 createConnection(appConfig.dbOptions).then(async connection => {
     console.log("Connected to DB");
     createExpressServer({controllers:
-        [UserController, AuthenticationController]
+    [UserController, AuthenticationController,CoinController,MarketController,
+    OrderController,PersonController,TransactionController,WalletController]
     }).listen(3000);
 }).catch(error => console.log("TypeORM connection error: ", error));
 

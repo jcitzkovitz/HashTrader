@@ -19,6 +19,12 @@ const routing_controllers_1 = require("routing-controllers");
  */
 const UserController_1 = require("./controllers/UserController");
 const AuthenticationController_1 = require("./controllers/AuthenticationController");
+const CoinController_1 = require("./controllers/CoinController");
+const MarketController_1 = require("./controllers/MarketController");
+const OrderController_1 = require("./controllers/OrderController");
+const PersonController_1 = require("./controllers/PersonController");
+const TransactionController_1 = require("./controllers/TransactionController");
+const WalletController_1 = require("./controllers/WalletController");
 /**
  * Create Express server.
  */
@@ -33,7 +39,8 @@ app.set('secret', appConfig.secret);
  */
 typeorm_1.createConnection(appConfig.dbOptions).then((connection) => __awaiter(this, void 0, void 0, function* () {
     console.log("Connected to DB");
-    routing_controllers_1.createExpressServer({ controllers: [UserController_1.UserController, AuthenticationController_1.AuthenticationController]
+    routing_controllers_1.createExpressServer({ controllers: [UserController_1.UserController, AuthenticationController_1.AuthenticationController, CoinController_1.CoinController, MarketController_1.MarketController,
+            OrderController_1.OrderController, PersonController_1.PersonController, TransactionController_1.TransactionController, WalletController_1.WalletController]
     }).listen(3000);
 })).catch(error => console.log("TypeORM connection error: ", error));
 module.exports = app;

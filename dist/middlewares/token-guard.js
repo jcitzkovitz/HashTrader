@@ -11,19 +11,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jwt = require("jsonwebtoken");
 const appConfig = require("../common/app-config");
 const UserRepository_1 = require("../repositories/UserRepository");
+const HelperModels_1 = require("../models/HelperModels");
 const userRepo = new UserRepository_1.UserRepo();
 function verify(request, response, next) {
     let token = request.headers['x-access-token'];
     if (!token)
         return response.status(401).send({ success: false, message: 'No token provided' });
-    jwt.verify(token, appConfig.secret, { algorithms: ['HS256'] }, (err, decoded) => __awaiter(this, void 0, void 0, function* () {
-        if (err)
-            return response.status(500).send({ success: false, message: 'Failed to authenticate token' });
-        let user = yield userRepo.getOne(decoded.id);
-        if (!user)
-            return response.status(404).send({ success: false, message: 'User not found' });
-        next();
-    }));
+    try {
+        jwt.verify(token, appConfig.secret, { algorithms: ['HS256'] }, (err, decoded) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                if (err)
+                    return response.status(500).send({ success: false, message: 'Failed to authenticate token' });
+                let user = yield userRepo.getOne(decoded.id);
+                if (!user)
+                    return response.status(404).send({ success: false, message: 'User not found' });
+                next();
+            }
+            catch (repoErr) {
+                return new HelperModels_1.ResponseModel(false, 'The user could not be authenticated', null);
+            }
+        }));
+    }
+    catch (err) {
+        return new HelperModels_1.ResponseModel(false, 'The token could not be authenticated', null);
+    }
 }
 exports.verify = verify;
 //# sourceMappingURL=token-guard.js.map

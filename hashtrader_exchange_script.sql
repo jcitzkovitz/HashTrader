@@ -34,7 +34,7 @@ CREATE TABLE hashtrader_exchange.Coins(
 id int auto_increment PRIMARY KEY,
 ticker VARCHAR(5) UNIQUE NOT NULL,
 name VARCHAR(20) NOT NULL,
-stakeable ENUM ('YES','NO') DEFAULT 'NO',
+stakeable BOOLEAN DEFAULT FALSE,
 marketType ENUM ('MAIN','OTHER') DEFAULT 'OTHER',
 coinWebsite VARCHAR(64),
 coinBlockExplore VARCHAR(64)
