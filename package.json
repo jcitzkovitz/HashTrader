@@ -6,14 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/app.js",
-	"compile_run": "rmdir dist /s && mkdir dist && tsc && npm start",
-    "generate_entities": "npx typeorm-model-generator -h localhost -d hashtrader_exchange -u root -x Jcrocks8181 -e \"mysql\" -o C:\\Users\\jcitz\\Desktop\\Project\\Temp2\\hashtrader\\src"
+    "compile_run": "rmdir dist /s && mkdir dist && tsc && npm start",
+    "generate_entities_exchange": "npx typeorm-model-generator -h localhost -d hashtrader_exchange -u root -x Jcrocks8181 -e \"mysql\" -o C:\\Users\\jcitz\\Desktop\\Project\\Temp2\\hashtrader\\src\\exchange",
+    "generate_entities_storage1": "npx typeorm-model-generator -h localhost -d hashtrader_storage1 -u root -x Jcrocks8181 -e \"mysql\" -o C:\\Users\\jcitz\\Desktop\\Project\\Temp2\\hashtrader\\src\\storage1"
   },
   "author": "Jordan Itzkovitz",
   "license": "ISC",
   "dependencies": {
     "@types/jsonwebtoken": "^7.2.7",
     "@types/multer": "^1.3.7",
+    "@types/uuid": "^3.4.3",
     "authenticator": "^1.1.5",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
@@ -21,7 +23,8 @@
     "mysql": "^2.15.0",
     "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
-    "typeorm": "^0.2.7"
+    "typeorm": "^0.2.7",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",

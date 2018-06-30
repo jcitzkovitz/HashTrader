@@ -9,14 +9,14 @@ import * as jwt from 'jsonwebtoken';
 /**
  * Controllers (route handlers).
  */
-import {UserController} from "./controllers/UserController";
-import {AuthenticationController} from "./controllers/AuthenticationController";
-import {CoinController} from "./controllers/CoinController";
-import {MarketController} from "./controllers/MarketController";
-import {OrderController} from "./controllers/OrderController";
-import {PersonController} from "./controllers/PersonController";
-import {TransactionController} from "./controllers/TransactionController";
-import {WalletController} from "./controllers/WalletController";
+import {UserController} from "./exchange/controllers/UserController";
+import {AuthenticationController} from "./exchange/controllers/AuthenticationController";
+import {CoinController} from "./exchange/controllers/CoinController";
+import {MarketController} from "./exchange/controllers/MarketController";
+import {OrderController} from "./exchange/controllers/OrderController";
+import {PersonController} from "./exchange/controllers/PersonController";
+import {TransactionController} from "./exchange/controllers/TransactionController";
+import {WalletController} from "./exchange/controllers/WalletController";
 
 /**
  * Create Express server.
@@ -25,13 +25,13 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("port", process.env.PORT || 3000);
-app.set('secret',appConfig.secret);
+app.set('secret',appConfig.secret1);
 
 /**
  * Create connection to DB using configuration provided in
  * appconfig file.
  */
-createConnection(appConfig.dbOptions).then(async connection => {
+createConnection(appConfig.dbOptionsExchange).then(async connection => {
     console.log("Connected to DB");
     createExpressServer({controllers:
     [UserController, AuthenticationController,CoinController,MarketController,

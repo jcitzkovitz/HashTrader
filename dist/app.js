@@ -17,14 +17,14 @@ const routing_controllers_1 = require("routing-controllers");
 /**
  * Controllers (route handlers).
  */
-const UserController_1 = require("./controllers/UserController");
-const AuthenticationController_1 = require("./controllers/AuthenticationController");
-const CoinController_1 = require("./controllers/CoinController");
-const MarketController_1 = require("./controllers/MarketController");
-const OrderController_1 = require("./controllers/OrderController");
-const PersonController_1 = require("./controllers/PersonController");
-const TransactionController_1 = require("./controllers/TransactionController");
-const WalletController_1 = require("./controllers/WalletController");
+const UserController_1 = require("./exchange/controllers/UserController");
+const AuthenticationController_1 = require("./exchange/controllers/AuthenticationController");
+const CoinController_1 = require("./exchange/controllers/CoinController");
+const MarketController_1 = require("./exchange/controllers/MarketController");
+const OrderController_1 = require("./exchange/controllers/OrderController");
+const PersonController_1 = require("./exchange/controllers/PersonController");
+const TransactionController_1 = require("./exchange/controllers/TransactionController");
+const WalletController_1 = require("./exchange/controllers/WalletController");
 /**
  * Create Express server.
  */
@@ -32,12 +32,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("port", process.env.PORT || 3000);
-app.set('secret', appConfig.secret);
+app.set('secret', appConfig.secret1);
 /**
  * Create connection to DB using configuration provided in
  * appconfig file.
  */
-typeorm_1.createConnection(appConfig.dbOptions).then((connection) => __awaiter(this, void 0, void 0, function* () {
+typeorm_1.createConnection(appConfig.dbOptionsExchange).then((connection) => __awaiter(this, void 0, void 0, function* () {
     console.log("Connected to DB");
     routing_controllers_1.createExpressServer({ controllers: [UserController_1.UserController, AuthenticationController_1.AuthenticationController, CoinController_1.CoinController, MarketController_1.MarketController,
             OrderController_1.OrderController, PersonController_1.PersonController, TransactionController_1.TransactionController, WalletController_1.WalletController]

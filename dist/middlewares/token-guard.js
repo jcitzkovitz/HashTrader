@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const jwt = require("jsonwebtoken");
 const appConfig = require("../common/app-config");
-const UserRepository_1 = require("../repositories/UserRepository");
+const UserRepository_1 = require("../exchange/repositories/UserRepository");
 const HelperModels_1 = require("../models/HelperModels");
 const userRepo = new UserRepository_1.UserRepo();
 function verify(request, response, next) {
@@ -18,7 +18,7 @@ function verify(request, response, next) {
     if (!token)
         return response.status(401).send({ success: false, message: 'No token provided' });
     try {
-        jwt.verify(token, appConfig.secret, { algorithms: ['HS256'] }, (err, decoded) => __awaiter(this, void 0, void 0, function* () {
+        jwt.verify(token, appConfig.secret1, { algorithms: ['HS256'] }, (err, decoded) => __awaiter(this, void 0, void 0, function* () {
             try {
                 if (err)
                     return response.status(500).send({ success: false, message: 'Failed to authenticate token' });

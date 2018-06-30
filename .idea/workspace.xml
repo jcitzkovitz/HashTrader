@@ -2,68 +2,101 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb057fd-8faa-4884-8af7-aa8966c43ef8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hashtrader_storage1_script.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/storage1/CoinMethods.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/storage1/controllers/AddressController.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/storage1/repositories/AddressRepository.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/CoinController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/CoinController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/MarketController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/MarketController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/OrderController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/OrderController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/PersonController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/PersonController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/TransactionController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/TransactionController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/UserController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/UserController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/WalletController.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/controllers/WalletController.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/addresses.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/addresses.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/coins.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/coins.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/employee.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/employee.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/markets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/markets.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/orders.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/orders.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/people.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/people.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/transactions.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/transactions.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/users.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/users.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/wallets.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entities/wallets.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/AddressRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/AddressRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/CoinRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/CoinRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/MarketRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/MarketRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/OrderRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/OrderRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/PersonRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/PersonRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/TransactionRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/TransactionRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/UserRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/UserRepository.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/WalletRepository.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/repositories/WalletRepository.js.map" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/AuthenticationController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/CoinController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/CoinController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/MarketController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/MarketController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/OrderController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/OrderController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/PersonController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/PersonController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/TransactionController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/TransactionController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/UserController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/UserController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/controllers/WalletController.ts" afterPath="$PROJECT_DIR$/src/exchange/controllers/WalletController.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/addresses.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/addresses.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/coins.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/coins.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/employee.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/employee.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/markets.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/markets.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/orders.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/orders.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/ormconfig.json" afterPath="$PROJECT_DIR$/src/exchange/entities/ormconfig.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/people.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/people.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/transactions.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/transactions.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/tsconfig.json" afterPath="$PROJECT_DIR$/src/exchange/entities/tsconfig.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/users.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/users.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/entities/wallets.ts" afterPath="$PROJECT_DIR$/src/exchange/entities/wallets.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/AddressRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/AddressRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/CoinRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/CoinRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/MarketRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/MarketRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/OrderRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/OrderRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/PersonRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/PersonRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/TransactionRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/TransactionRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/UserRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/UserRepository.ts" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/repositories/WalletRepository.ts" afterPath="$PROJECT_DIR$/src/exchange/repositories/WalletRepository.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.js" afterPath="$PROJECT_DIR$/dist/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.js.map" afterPath="$PROJECT_DIR$/dist/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js" afterPath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/AuthenticationController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/CoinController.js" afterPath="$PROJECT_DIR$/dist/controllers/CoinController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/CoinController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/CoinController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/MarketController.js" afterPath="$PROJECT_DIR$/dist/controllers/MarketController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/MarketController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/MarketController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/OrderController.js" afterPath="$PROJECT_DIR$/dist/controllers/OrderController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/OrderController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/OrderController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/PersonController.js" afterPath="$PROJECT_DIR$/dist/controllers/PersonController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/PersonController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/PersonController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/TransactionController.js" afterPath="$PROJECT_DIR$/dist/controllers/TransactionController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/TransactionController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/TransactionController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/WalletController.js" afterPath="$PROJECT_DIR$/dist/controllers/WalletController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/WalletController.js.map" afterPath="$PROJECT_DIR$/dist/controllers/WalletController.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/addresses.js" afterPath="$PROJECT_DIR$/dist/entities/addresses.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/addresses.js.map" afterPath="$PROJECT_DIR$/dist/entities/addresses.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/markets.js" afterPath="$PROJECT_DIR$/dist/entities/markets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/markets.js.map" afterPath="$PROJECT_DIR$/dist/entities/markets.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/orders.js" afterPath="$PROJECT_DIR$/dist/entities/orders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/orders.js.map" afterPath="$PROJECT_DIR$/dist/entities/orders.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/people.js" afterPath="$PROJECT_DIR$/dist/entities/people.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/people.js.map" afterPath="$PROJECT_DIR$/dist/entities/people.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/transactions.js" afterPath="$PROJECT_DIR$/dist/entities/transactions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/transactions.js.map" afterPath="$PROJECT_DIR$/dist/entities/transactions.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/wallets.js" afterPath="$PROJECT_DIR$/dist/entities/wallets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/entities/wallets.js.map" afterPath="$PROJECT_DIR$/dist/entities/wallets.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/common/app-config.js" afterPath="$PROJECT_DIR$/dist/common/app-config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/common/app-config.js.map" afterPath="$PROJECT_DIR$/dist/common/app-config.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/middlewares/token-guard.js" afterPath="$PROJECT_DIR$/dist/middlewares/token-guard.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/middlewares/token-guard.js.map" afterPath="$PROJECT_DIR$/dist/middlewares/token-guard.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/AddressRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/AddressRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/AddressRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/AddressRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/CoinRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/CoinRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/CoinRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/CoinRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/MarketRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/MarketRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/MarketRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/MarketRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/OrderRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/OrderRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/OrderRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/OrderRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/PersonRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/PersonRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/PersonRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/PersonRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/UserRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/UserRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/UserRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/UserRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/WalletRepository.js" afterPath="$PROJECT_DIR$/dist/repositories/WalletRepository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/repositories/WalletRepository.js.map" afterPath="$PROJECT_DIR$/dist/repositories/WalletRepository.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hashtrader_exchange_script.sql" afterPath="$PROJECT_DIR$/hashtrader_exchange_script.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.ts" afterPath="$PROJECT_DIR$/src/app.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" afterPath="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/CoinController.ts" afterPath="$PROJECT_DIR$/src/controllers/CoinController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/MarketController.ts" afterPath="$PROJECT_DIR$/src/controllers/MarketController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/OrderController.ts" afterPath="$PROJECT_DIR$/src/controllers/OrderController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/PersonController.ts" afterPath="$PROJECT_DIR$/src/controllers/PersonController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/TransactionController.ts" afterPath="$PROJECT_DIR$/src/controllers/TransactionController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers/WalletController.ts" afterPath="$PROJECT_DIR$/src/controllers/WalletController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/app-config.ts" afterPath="$PROJECT_DIR$/src/common/app-config.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/middlewares/token-guard.ts" afterPath="$PROJECT_DIR$/src/middlewares/token-guard.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/AddressRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/AddressRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/CoinRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/CoinRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/MarketRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/MarketRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/OrderRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/OrderRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/PersonRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/PersonRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/UserRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/UserRepository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/repositories/WalletRepository.ts" afterPath="$PROJECT_DIR$/src/repositories/WalletRepository.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/HelperModels.ts" afterPath="$PROJECT_DIR$/src/models/HelperModels.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,13 +107,27 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="hashtrader_exchange_script.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hashtrader_exchange_script.sql">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+      <file leaf-file-name="AddressRepository.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/storage1/repositories/AddressRepository.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="760">
+              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddressController.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/storage1/controllers/AddressController.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="960">
+              <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,6 +156,9 @@
       <find>Selec</find>
       <find>addressRepo</find>
       <find>address</find>
+      <find>body.val</find>
+      <find>secret</find>
+      <find>value</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,16 +172,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/controllers/employee-controller.ts" />
-        <option value="$PROJECT_DIR$/src/repository/employee-repository.ts" />
-        <option value="$PROJECT_DIR$/src/entities/employee-entity.ts" />
-        <option value="$PROJECT_DIR$/src/tsconfig.json" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/src/repositories/employee-repository.ts" />
         <option value="$PROJECT_DIR$/src/controllers/UserController" />
         <option value="$PROJECT_DIR$/src/ConnectionManager.ts" />
         <option value="$PROJECT_DIR$/src/ormconfig.json" />
-        <option value="$PROJECT_DIR$/src/common/app-config.ts" />
         <option value="$PROJECT_DIR$/src/models/ErrorModel.ts" />
         <option value="$PROJECT_DIR$/src/models/app.ts" />
         <option value="$PROJECT_DIR$/src/models/ErrModel.ts" />
@@ -142,30 +186,43 @@
         <option value="$PROJECT_DIR$/src/entities/people.ts" />
         <option value="$PROJECT_DIR$/src/models/ResponseModel.ts" />
         <option value="$PROJECT_DIR$/src/entities/wallets.ts" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/controllers/UserController.ts" />
         <option value="$PROJECT_DIR$/src/repositories/TransactionRepo.ts" />
         <option value="$PROJECT_DIR$/src/repositories/TransactionRepository.ts" />
         <option value="$PROJECT_DIR$/src/repositories/UserRepository.ts" />
         <option value="$PROJECT_DIR$/src/repositories/WalletRepository.ts" />
-        <option value="$PROJECT_DIR$/src/repositories/AddressRepository.ts" />
         <option value="$PROJECT_DIR$/src/repositories/PersonRepository.ts" />
-        <option value="$PROJECT_DIR$/src/controllers/WalletController.ts" />
         <option value="$PROJECT_DIR$/src/controllers/TransactionController.ts" />
         <option value="$PROJECT_DIR$/src/entities/coins.ts" />
-        <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/controllers/PersonController.ts" />
         <option value="$PROJECT_DIR$/src/controllers/AuthenticationController.ts" />
         <option value="$PROJECT_DIR$/src/repositories/CoinRepository.ts" />
         <option value="$PROJECT_DIR$/src/controllers/CoinController.ts" />
-        <option value="$PROJECT_DIR$/src/middlewares/token-guard.ts" />
         <option value="$PROJECT_DIR$/src/entities/orders.ts" />
         <option value="$PROJECT_DIR$/src/repositories/MarketRepository.ts" />
         <option value="$PROJECT_DIR$/src/controllers/MarketController.ts" />
-        <option value="$PROJECT_DIR$/src/models/HelperModels.ts" />
         <option value="$PROJECT_DIR$/src/controllers/OrderController.ts" />
         <option value="$PROJECT_DIR$/src/repositories/OrderRepository.ts" />
         <option value="$PROJECT_DIR$/hashtrader_exchange_script.sql" />
+        <option value="$PROJECT_DIR$/src/controllers/WalletController.ts" />
+        <option value="$PROJECT_DIR$/src/repositories/AddressRepository.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/controllers/OrderController.ts" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/common/app-config.ts" />
+        <option value="$PROJECT_DIR$/src/app.ts" />
+        <option value="$PROJECT_DIR$/hashtrader_storage1_script.sql" />
+        <option value="$PROJECT_DIR$/src/models/HelperModels.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/repositories/WalletRepository.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/entities/wallets.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/controllers/AuthenticationController.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/controllers/WalletController.ts" />
+        <option value="$PROJECT_DIR$/src/middlewares/token-guard.ts" />
+        <option value="$PROJECT_DIR$/src/storage1/CoinMethods.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/repositories/TransactionRepository.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/controllers/TransactionController.ts" />
+        <option value="$PROJECT_DIR$/src/exchange/repositories/AddressRepository.ts" />
+        <option value="$PROJECT_DIR$/src/storage1/repositories/AddressRepository.ts" />
+        <option value="$PROJECT_DIR$/src/storage1/controllers/AddressController.ts" />
       </list>
     </option>
   </component>
@@ -175,14 +232,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
-    <option name="y" value="-16" />
-    <option name="width" value="3872" />
-    <option name="height" value="2092" />
+    <option name="x" value="-14" />
+    <option name="width" value="1948" />
+    <option name="height" value="2074" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -202,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -214,11 +268,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="repositories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hashtrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,13 +356,14 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader\src\models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader\src\exchange" />
       <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader\src\controllers" />
       <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader\src\controllers\Authorization" />
       <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jcitz\Desktop\Project\Temp2\hashtrader\src\models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -662,14 +792,16 @@
       <workItem from="1530202919568" duration="13305000" />
       <workItem from="1530235862963" duration="37771000" />
       <workItem from="1530334952927" duration="228000" />
+      <workItem from="1530371047198" duration="20575000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160416000" />
+    <option name="totallyTimeSpent" value="180991000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
+    <frame x="-14" y="0" width="1948" height="2074" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -684,9 +816,11 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12473958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -696,10 +830,8 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -744,52 +876,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/entities/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/ormconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/employee-entity.ts" />
-    <entry file="file://$PROJECT_DIR$/src/repositories/employee-repository.ts" />
-    <entry file="file://$PROJECT_DIR$/dist/common/app-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ormconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/error_classes/LoginError.ts" />
     <entry file="file://$PROJECT_DIR$/src/ConnectionManager.ts" />
-    <entry file="file://$PROJECT_DIR$/tsconfig.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-161">
-          <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
@@ -807,13 +894,6 @@
     <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts" />
     <entry file="file://$PROJECT_DIR$/src/models/ErrorModel.ts" />
     <entry file="file://$PROJECT_DIR$/src/controllers/ErrorModel.ts" />
-    <entry file="file://$PROJECT_DIR$/src/common/app-config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/Authorization/VerifyToken.ts" />
     <entry file="file://$PROJECT_DIR$/src/common/hashing.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -825,161 +905,77 @@
     <entry file="file://$PROJECT_DIR$/src/entities/withdrawal.ts" />
     <entry file="file://$PROJECT_DIR$/src/entities/deposits.ts" />
     <entry file="file://$PROJECT_DIR$/src/controllers/employee-controller.ts" />
-    <entry file="file://$PROJECT_DIR$/src/entities/wallets.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/people.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/people.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/transactions.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/transactions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-730">
           <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/users.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/users.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-512">
           <caret line="83" column="19" lean-forward="false" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/markets.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/markets.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
           <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/addresses.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/TransactionRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/WalletRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/AddressRepository.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/PersonRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/PersonRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/WalletController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/UserController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/TransactionController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="60" column="70" lean-forward="false" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/coins.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/coins.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1880">
           <caret line="51" column="10" lean-forward="false" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/PersonController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/AuthenticationController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="53" column="85" lean-forward="false" selection-start-line="53" selection-start-column="85" selection-end-line="53" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/UserRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/UserRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/CoinRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/CoinRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/middlewares/token-guard.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="9" column="97" lean-forward="false" selection-start-line="9" selection-start-column="97" selection-end-line="9" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/MarketController.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/MarketController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1711">
           <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/CoinController.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/CoinController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="751">
           <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entities/orders.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/orders.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
@@ -993,46 +989,229 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/OrderController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="95" column="43" lean-forward="false" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/HelperModels.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="44" column="10" lean-forward="false" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/OrderRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/OrderRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositories/MarketRepository.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/MarketRepository.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.ts">
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/PersonController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/UserController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2672">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/ormconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/OrderController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hashtrader_exchange_script.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="120">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/common/app-config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="31" column="44" lean-forward="false" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hashtrader_storage1_script.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/entities/addresses.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/wallets.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/WalletRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/HelperModels.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/AuthenticationController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/WalletController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/middlewares/token-guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/entities/addresses.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/CoinMethods.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/TransactionRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/controllers/TransactionController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exchange/repositories/AddressRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/repositories/AddressRepository.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/storage1/controllers/AddressController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

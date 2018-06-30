@@ -19,7 +19,7 @@ export interface BalanceChangeModel{
     userId:number,
     coinId:number,
     change: string,
-    value: number
+    amount: number
 }
 
 export interface WithdrawDepositModel{
@@ -28,7 +28,7 @@ export interface WithdrawDepositModel{
     password?:string,
     googleAuth?:number,
     coinId:number,
-    value:number,
+    amount:number,
     withdrawalLimit?:number,
     sendToAddress?:string,
     fee?:number;
